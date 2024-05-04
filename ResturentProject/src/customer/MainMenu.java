@@ -26,6 +26,25 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PickSeat = new javax.swing.JPanel();
+        btnT3 = new javax.swing.JButton();
+        btnT4 = new javax.swing.JButton();
+        btnT2 = new javax.swing.JButton();
+        btnT5 = new javax.swing.JButton();
+        btnT1 = new javax.swing.JButton();
+        btnT6 = new javax.swing.JButton();
+        btnT7 = new javax.swing.JButton();
+        btnT8 = new javax.swing.JButton();
+        btnT9 = new javax.swing.JButton();
+        btnT10 = new javax.swing.JButton();
+        btnT11 = new javax.swing.JButton();
+        btnT12 = new javax.swing.JButton();
+        btnT13 = new javax.swing.JButton();
+        btnT14 = new javax.swing.JButton();
+        btnT15 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        BackgroundImage1 = new javax.swing.JLabel();
+        pickMenu = new javax.swing.JPanel();
         btnTrackOrder = new javax.swing.JButton();
         btnOrder = new javax.swing.JButton();
         BackgroundImage = new javax.swing.JLabel();
@@ -33,26 +52,188 @@ public class MainMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        PickSeat.setLayout(null);
+
+        btnT3.setBackground(new java.awt.Color(234, 240, 240));
+        btnT3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT3.setForeground(new java.awt.Color(0, 0, 0));
+        btnT3.setText("TC");
+        PickSeat.add(btnT3);
+        btnT3.setBounds(520, 160, 80, 70);
+
+        btnT4.setBackground(new java.awt.Color(234, 240, 240));
+        btnT4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT4.setForeground(new java.awt.Color(0, 0, 0));
+        btnT4.setText("TD");
+        btnT4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT4ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT4);
+        btnT4.setBounds(670, 160, 81, 70);
+
+        btnT2.setBackground(new java.awt.Color(234, 240, 240));
+        btnT2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT2.setForeground(new java.awt.Color(0, 0, 0));
+        btnT2.setText("TB");
+        PickSeat.add(btnT2);
+        btnT2.setBounds(370, 160, 80, 70);
+
+        btnT5.setBackground(new java.awt.Color(234, 240, 240));
+        btnT5.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT5.setForeground(new java.awt.Color(0, 0, 0));
+        btnT5.setText("TE");
+        PickSeat.add(btnT5);
+        btnT5.setBounds(810, 160, 80, 70);
+
+        btnT1.setBackground(new java.awt.Color(234, 240, 240));
+        btnT1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT1.setForeground(new java.awt.Color(0, 0, 0));
+        btnT1.setText("TA");
+        PickSeat.add(btnT1);
+        btnT1.setBounds(220, 160, 80, 70);
+
+        btnT6.setBackground(new java.awt.Color(234, 240, 240));
+        btnT6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT6.setForeground(new java.awt.Color(0, 0, 0));
+        btnT6.setText("TJ");
+        PickSeat.add(btnT6);
+        btnT6.setBounds(810, 260, 80, 70);
+
+        btnT7.setBackground(new java.awt.Color(234, 240, 240));
+        btnT7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT7.setForeground(new java.awt.Color(0, 0, 0));
+        btnT7.setText("TH");
+        btnT7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT7ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT7);
+        btnT7.setBounds(520, 260, 82, 70);
+
+        btnT8.setBackground(new java.awt.Color(234, 240, 240));
+        btnT8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT8.setForeground(new java.awt.Color(0, 0, 0));
+        btnT8.setText("TG");
+        PickSeat.add(btnT8);
+        btnT8.setBounds(370, 260, 80, 70);
+
+        btnT9.setBackground(new java.awt.Color(234, 240, 240));
+        btnT9.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT9.setForeground(new java.awt.Color(0, 0, 0));
+        btnT9.setText("TI");
+        PickSeat.add(btnT9);
+        btnT9.setBounds(670, 260, 80, 70);
+
+        btnT10.setBackground(new java.awt.Color(234, 240, 240));
+        btnT10.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT10.setForeground(new java.awt.Color(0, 0, 0));
+        btnT10.setText("TF");
+        btnT10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT10ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT10);
+        btnT10.setBounds(220, 260, 80, 70);
+
+        btnT11.setBackground(new java.awt.Color(234, 240, 240));
+        btnT11.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT11.setForeground(new java.awt.Color(0, 0, 0));
+        btnT11.setText("TL");
+        PickSeat.add(btnT11);
+        btnT11.setBounds(370, 360, 80, 70);
+
+        btnT12.setBackground(new java.awt.Color(234, 240, 240));
+        btnT12.setFont(new java.awt.Font("Segoe UI", 1, 34)); // NOI18N
+        btnT12.setForeground(new java.awt.Color(0, 0, 0));
+        btnT12.setText("TN");
+        PickSeat.add(btnT12);
+        btnT12.setBounds(670, 360, 81, 70);
+
+        btnT13.setBackground(new java.awt.Color(234, 240, 240));
+        btnT13.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT13.setForeground(new java.awt.Color(0, 0, 0));
+        btnT13.setText("TK");
+        PickSeat.add(btnT13);
+        btnT13.setBounds(220, 360, 80, 70);
+
+        btnT14.setBackground(new java.awt.Color(234, 240, 240));
+        btnT14.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        btnT14.setForeground(new java.awt.Color(0, 0, 0));
+        btnT14.setText("TM");
+        PickSeat.add(btnT14);
+        btnT14.setBounds(520, 360, 80, 70);
+
+        btnT15.setBackground(new java.awt.Color(234, 240, 240));
+        btnT15.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
+        btnT15.setForeground(new java.awt.Color(0, 0, 0));
+        btnT15.setText("TO");
+        PickSeat.add(btnT15);
+        btnT15.setBounds(810, 360, 80, 70);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("SELECT TABLE");
+        PickSeat.add(jLabel1);
+        jLabel1.setBounds(380, 50, 340, 40);
+
+        BackgroundImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/Background.png"))); // NOI18N
+        PickSeat.add(BackgroundImage1);
+        BackgroundImage1.setBounds(0, 0, 1067, 612);
+
+        getContentPane().add(PickSeat);
+        PickSeat.setBounds(0, 0, 1070, 610);
+
+        pickMenu.setLayout(null);
+
         btnTrackOrder.setBackground(new java.awt.Color(244, 119, 0));
         btnTrackOrder.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         btnTrackOrder.setForeground(new java.awt.Color(249, 249, 249));
         btnTrackOrder.setText("TRACK ORDER");
-        getContentPane().add(btnTrackOrder);
+        pickMenu.add(btnTrackOrder);
         btnTrackOrder.setBounds(600, 140, 330, 420);
 
         btnOrder.setBackground(new java.awt.Color(229, 178, 0));
         btnOrder.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         btnOrder.setForeground(new java.awt.Color(249, 249, 249));
         btnOrder.setText("ORDER FOODS");
-        getContentPane().add(btnOrder);
+        btnOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderActionPerformed(evt);
+            }
+        });
+        pickMenu.add(btnOrder);
         btnOrder.setBounds(150, 140, 330, 420);
 
         BackgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/Background.png"))); // NOI18N
-        getContentPane().add(BackgroundImage);
+        pickMenu.add(BackgroundImage);
         BackgroundImage.setBounds(0, 0, 1067, 612);
+
+        getContentPane().add(pickMenu);
+        pickMenu.setBounds(0, 0, 1070, 610);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
+        pickMenu.setVisible(false);
+        
+    }//GEN-LAST:event_btnOrderActionPerformed
+
+    private void btnT4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnT4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnT4ActionPerformed
+
+    private void btnT10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnT10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnT10ActionPerformed
+
+    private void btnT7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnT7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnT7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,7 +272,26 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BackgroundImage;
+    private javax.swing.JLabel BackgroundImage1;
+    private javax.swing.JPanel PickSeat;
     private javax.swing.JButton btnOrder;
+    private javax.swing.JButton btnT1;
+    private javax.swing.JButton btnT10;
+    private javax.swing.JButton btnT11;
+    private javax.swing.JButton btnT12;
+    private javax.swing.JButton btnT13;
+    private javax.swing.JButton btnT14;
+    private javax.swing.JButton btnT15;
+    private javax.swing.JButton btnT2;
+    private javax.swing.JButton btnT3;
+    private javax.swing.JButton btnT4;
+    private javax.swing.JButton btnT5;
+    private javax.swing.JButton btnT6;
+    private javax.swing.JButton btnT7;
+    private javax.swing.JButton btnT8;
+    private javax.swing.JButton btnT9;
     private javax.swing.JButton btnTrackOrder;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel pickMenu;
     // End of variables declaration//GEN-END:variables
 }
