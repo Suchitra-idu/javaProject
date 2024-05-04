@@ -44,7 +44,15 @@ public class OrderDetails extends javax.swing.JFrame {
             new String [] {
                 "Table ID", "Item", "Size", "Quentity", "Extra"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(Orders);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
