@@ -26,6 +26,24 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PickSeat = new javax.swing.JPanel();
+        btnT3 = new javax.swing.JButton();
+        btnT4 = new javax.swing.JButton();
+        btnT2 = new javax.swing.JButton();
+        btnT5 = new javax.swing.JButton();
+        btnT1 = new javax.swing.JButton();
+        btnT6 = new javax.swing.JButton();
+        btnT7 = new javax.swing.JButton();
+        btnT8 = new javax.swing.JButton();
+        btnT9 = new javax.swing.JButton();
+        btnT10 = new javax.swing.JButton();
+        btnT11 = new javax.swing.JButton();
+        btnT12 = new javax.swing.JButton();
+        btnT13 = new javax.swing.JButton();
+        btnT14 = new javax.swing.JButton();
+        btnT15 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        BackgroundImage1 = new javax.swing.JLabel();
         PlaceOrder = new javax.swing.JPanel();
         makePurchesPanel = new javax.swing.JPanel();
         txtTotPrice = new javax.swing.JLabel();
@@ -74,24 +92,6 @@ public class MainMenu extends javax.swing.JFrame {
         txtQty5 = new javax.swing.JLabel();
         btnAdd5 = new javax.swing.JButton();
         BackgroundImage2 = new javax.swing.JLabel();
-        PickSeat = new javax.swing.JPanel();
-        btnT3 = new javax.swing.JButton();
-        btnT4 = new javax.swing.JButton();
-        btnT2 = new javax.swing.JButton();
-        btnT5 = new javax.swing.JButton();
-        btnT1 = new javax.swing.JButton();
-        btnT6 = new javax.swing.JButton();
-        btnT7 = new javax.swing.JButton();
-        btnT8 = new javax.swing.JButton();
-        btnT9 = new javax.swing.JButton();
-        btnT10 = new javax.swing.JButton();
-        btnT11 = new javax.swing.JButton();
-        btnT12 = new javax.swing.JButton();
-        btnT13 = new javax.swing.JButton();
-        btnT14 = new javax.swing.JButton();
-        btnT15 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        BackgroundImage1 = new javax.swing.JLabel();
         pickMenu = new javax.swing.JPanel();
         btnTrackOrder = new javax.swing.JButton();
         btnOrder = new javax.swing.JButton();
@@ -100,359 +100,17 @@ public class MainMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        PlaceOrder.setLayout(null);
-
-        makePurchesPanel.setBackground(new java.awt.Color(255, 255, 255));
-        makePurchesPanel.setForeground(new java.awt.Color(169, 169, 169));
-        makePurchesPanel.setLayout(null);
-
-        txtTotPrice.setBackground(new java.awt.Color(0, 0, 0));
-        txtTotPrice.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
-        txtTotPrice.setForeground(new java.awt.Color(0, 0, 0));
-        txtTotPrice.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        txtTotPrice.setText("Rs 0");
-        makePurchesPanel.add(txtTotPrice);
-        txtTotPrice.setBounds(180, 10, 150, 60);
-
-        btnSendOrder.setBackground(new java.awt.Color(229, 178, 0));
-        btnSendOrder.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        btnSendOrder.setForeground(new java.awt.Color(0, 0, 0));
-        btnSendOrder.setText("SEND ORDER");
-        btnSendOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSendOrderActionPerformed(evt);
-            }
-        });
-        makePurchesPanel.add(btnSendOrder);
-        btnSendOrder.setBounds(190, 120, 160, 60);
-
-        btnCancelOrder.setBackground(new java.awt.Color(214, 55, 55));
-        btnCancelOrder.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        btnCancelOrder.setForeground(new java.awt.Color(0, 0, 0));
-        btnCancelOrder.setText("CANCEL ORDER");
-        btnCancelOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelOrderActionPerformed(evt);
-            }
-        });
-        makePurchesPanel.add(btnCancelOrder);
-        btnCancelOrder.setBounds(20, 120, 160, 60);
-
-        txtTot.setBackground(new java.awt.Color(0, 0, 0));
-        txtTot.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
-        txtTot.setForeground(new java.awt.Color(0, 0, 0));
-        txtTot.setText("TOTAL");
-        makePurchesPanel.add(txtTot);
-        txtTot.setBounds(10, 10, 130, 60);
-
-        txtLine2.setBackground(new java.awt.Color(144, 144, 144));
-        txtLine2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtLine2.setText("-----------------------------------------------------------------");
-        makePurchesPanel.add(txtLine2);
-        txtLine2.setBounds(0, 80, 370, 20);
-
-        PlaceOrder.add(makePurchesPanel);
-        makePurchesPanel.setBounds(690, 380, 370, 210);
-
-        AdditionalInfo.setBackground(new java.awt.Color(255, 255, 255));
-        AdditionalInfo.setLayout(null);
-
-        txtAdditionalInfo.setBackground(new java.awt.Color(0, 0, 0));
-        txtAdditionalInfo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        txtAdditionalInfo.setForeground(new java.awt.Color(0, 0, 0));
-        txtAdditionalInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAdditionalInfo.setText("ADDITIONAL INFO");
-        AdditionalInfo.add(txtAdditionalInfo);
-        txtAdditionalInfo.setBounds(30, 10, 290, 60);
-
-        txtline.setBackground(new java.awt.Color(144, 144, 144));
-        txtline.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtline.setText("-----------------------------------------------------------------");
-        AdditionalInfo.add(txtline);
-        txtline.setBounds(0, 60, 370, 20);
-
-        scrAdditionalInfo.setBackground(new java.awt.Color(255, 255, 255));
-
-        inputTxtAdditionalInfo.setBackground(new java.awt.Color(255, 255, 255));
-        inputTxtAdditionalInfo.setColumns(20);
-        inputTxtAdditionalInfo.setForeground(new java.awt.Color(0, 0, 0));
-        inputTxtAdditionalInfo.setRows(5);
-        scrAdditionalInfo.setViewportView(inputTxtAdditionalInfo);
-
-        AdditionalInfo.add(scrAdditionalInfo);
-        scrAdditionalInfo.setBounds(10, 80, 340, 170);
-
-        PlaceOrder.add(AdditionalInfo);
-        AdditionalInfo.setBounds(690, 70, 360, 260);
-
-        ItemPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        ItemPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
-        ItemPanel2.setForeground(new java.awt.Color(169, 169, 169));
-        ItemPanel2.setLayout(null);
-
-        picItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/saladIcon.png"))); // NOI18N
-        ItemPanel2.add(picItem2);
-        picItem2.setBounds(10, 10, 50, 50);
-
-        txtSalad2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        txtSalad2.setForeground(new java.awt.Color(0, 0, 0));
-        txtSalad2.setText("SALAD");
-        ItemPanel2.add(txtSalad2);
-        txtSalad2.setBounds(80, 20, 100, 16);
-
-        txtPrice2.setBackground(new java.awt.Color(0, 0, 0));
-        txtPrice2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        txtPrice2.setForeground(new java.awt.Color(0, 0, 0));
-        txtPrice2.setText("Rs 300");
-        ItemPanel2.add(txtPrice2);
-        txtPrice2.setBounds(80, 40, 34, 16);
-
-        btnRemove2.setBackground(new java.awt.Color(51, 51, 51));
-        btnRemove2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnRemove2.setForeground(new java.awt.Color(255, 255, 255));
-        btnRemove2.setText("-");
-        btnRemove2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemove2ActionPerformed(evt);
-            }
-        });
-        ItemPanel2.add(btnRemove2);
-        btnRemove2.setBounds(370, 10, 50, 50);
-
-        txtQty2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
-        txtQty2.setForeground(new java.awt.Color(0, 0, 0));
-        txtQty2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtQty2.setText("0");
-        ItemPanel2.add(txtQty2);
-        txtQty2.setBounds(320, 10, 50, 50);
-
-        btnAdd2.setBackground(new java.awt.Color(51, 51, 51));
-        btnAdd2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnAdd2.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd2.setText("+");
-        ItemPanel2.add(btnAdd2);
-        btnAdd2.setBounds(270, 10, 50, 50);
-
-        PlaceOrder.add(ItemPanel2);
-        ItemPanel2.setBounds(60, 260, 440, 70);
-
-        ItemPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        ItemPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
-        ItemPanel1.setForeground(new java.awt.Color(169, 169, 169));
-        ItemPanel1.setLayout(null);
-
-        picItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/saladIcon.png"))); // NOI18N
-        ItemPanel1.add(picItem1);
-        picItem1.setBounds(10, 10, 50, 50);
-
-        txtSalad1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        txtSalad1.setForeground(new java.awt.Color(0, 0, 0));
-        txtSalad1.setText("SALAD");
-        ItemPanel1.add(txtSalad1);
-        txtSalad1.setBounds(80, 20, 100, 16);
-
-        txtPrice1.setBackground(new java.awt.Color(0, 0, 0));
-        txtPrice1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        txtPrice1.setForeground(new java.awt.Color(0, 0, 0));
-        txtPrice1.setText("Rs 300");
-        ItemPanel1.add(txtPrice1);
-        txtPrice1.setBounds(80, 40, 34, 16);
-
-        btnRemove1.setBackground(new java.awt.Color(51, 51, 51));
-        btnRemove1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnRemove1.setForeground(new java.awt.Color(255, 255, 255));
-        btnRemove1.setText("-");
-        btnRemove1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemove1ActionPerformed(evt);
-            }
-        });
-        ItemPanel1.add(btnRemove1);
-        btnRemove1.setBounds(370, 10, 50, 50);
-
-        txtQty1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
-        txtQty1.setForeground(new java.awt.Color(0, 0, 0));
-        txtQty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtQty1.setText("0");
-        ItemPanel1.add(txtQty1);
-        txtQty1.setBounds(320, 10, 50, 50);
-
-        btnAdd1.setBackground(new java.awt.Color(51, 51, 51));
-        btnAdd1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnAdd1.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd1.setText("+");
-        ItemPanel1.add(btnAdd1);
-        btnAdd1.setBounds(270, 10, 50, 50);
-
-        PlaceOrder.add(ItemPanel1);
-        ItemPanel1.setBounds(60, 170, 440, 70);
-
-        ItemPanel.setBackground(new java.awt.Color(255, 255, 255));
-        ItemPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
-        ItemPanel.setForeground(new java.awt.Color(169, 169, 169));
-        ItemPanel.setLayout(null);
-
-        picItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/saladIcon.png"))); // NOI18N
-        ItemPanel.add(picItem);
-        picItem.setBounds(10, 10, 50, 50);
-
-        txtSalad.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        txtSalad.setForeground(new java.awt.Color(0, 0, 0));
-        txtSalad.setText("SALAD");
-        ItemPanel.add(txtSalad);
-        txtSalad.setBounds(80, 20, 100, 16);
-
-        txtPrice.setBackground(new java.awt.Color(0, 0, 0));
-        txtPrice.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        txtPrice.setForeground(new java.awt.Color(0, 0, 0));
-        txtPrice.setText("Rs 300");
-        ItemPanel.add(txtPrice);
-        txtPrice.setBounds(80, 40, 34, 16);
-
-        btnRemove.setBackground(new java.awt.Color(51, 51, 51));
-        btnRemove.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnRemove.setForeground(new java.awt.Color(255, 255, 255));
-        btnRemove.setText("-");
-        btnRemove.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveActionPerformed(evt);
-            }
-        });
-        ItemPanel.add(btnRemove);
-        btnRemove.setBounds(370, 10, 50, 50);
-
-        txtQty.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
-        txtQty.setForeground(new java.awt.Color(0, 0, 0));
-        txtQty.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtQty.setText("0");
-        ItemPanel.add(txtQty);
-        txtQty.setBounds(320, 10, 50, 50);
-
-        btnAdd.setBackground(new java.awt.Color(51, 51, 51));
-        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd.setText("+");
-        ItemPanel.add(btnAdd);
-        btnAdd.setBounds(270, 10, 50, 50);
-
-        PlaceOrder.add(ItemPanel);
-        ItemPanel.setBounds(60, 70, 440, 70);
-
-        ItemPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        ItemPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
-        ItemPanel4.setForeground(new java.awt.Color(169, 169, 169));
-        ItemPanel4.setLayout(null);
-
-        picItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/saladIcon.png"))); // NOI18N
-        ItemPanel4.add(picItem4);
-        picItem4.setBounds(10, 10, 50, 50);
-
-        txtSalad4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        txtSalad4.setForeground(new java.awt.Color(0, 0, 0));
-        txtSalad4.setText("SALAD");
-        ItemPanel4.add(txtSalad4);
-        txtSalad4.setBounds(80, 20, 100, 16);
-
-        txtPrice4.setBackground(new java.awt.Color(0, 0, 0));
-        txtPrice4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        txtPrice4.setForeground(new java.awt.Color(0, 0, 0));
-        txtPrice4.setText("Rs 300");
-        ItemPanel4.add(txtPrice4);
-        txtPrice4.setBounds(80, 40, 34, 16);
-
-        btnRemove4.setBackground(new java.awt.Color(51, 51, 51));
-        btnRemove4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnRemove4.setForeground(new java.awt.Color(255, 255, 255));
-        btnRemove4.setText("-");
-        btnRemove4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemove4ActionPerformed(evt);
-            }
-        });
-        ItemPanel4.add(btnRemove4);
-        btnRemove4.setBounds(370, 10, 50, 50);
-
-        txtQty4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
-        txtQty4.setForeground(new java.awt.Color(0, 0, 0));
-        txtQty4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtQty4.setText("0");
-        ItemPanel4.add(txtQty4);
-        txtQty4.setBounds(320, 10, 50, 50);
-
-        btnAdd4.setBackground(new java.awt.Color(51, 51, 51));
-        btnAdd4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnAdd4.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd4.setText("+");
-        ItemPanel4.add(btnAdd4);
-        btnAdd4.setBounds(270, 10, 50, 50);
-
-        PlaceOrder.add(ItemPanel4);
-        ItemPanel4.setBounds(60, 440, 440, 70);
-
-        ItemPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        ItemPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
-        ItemPanel5.setForeground(new java.awt.Color(169, 169, 169));
-        ItemPanel5.setLayout(null);
-
-        picItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/saladIcon.png"))); // NOI18N
-        ItemPanel5.add(picItem5);
-        picItem5.setBounds(10, 10, 50, 50);
-
-        txtSalad5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        txtSalad5.setForeground(new java.awt.Color(0, 0, 0));
-        txtSalad5.setText("SALAD");
-        ItemPanel5.add(txtSalad5);
-        txtSalad5.setBounds(80, 20, 100, 16);
-
-        txtPrice5.setBackground(new java.awt.Color(0, 0, 0));
-        txtPrice5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        txtPrice5.setForeground(new java.awt.Color(0, 0, 0));
-        txtPrice5.setText("Rs 300");
-        ItemPanel5.add(txtPrice5);
-        txtPrice5.setBounds(80, 40, 34, 16);
-
-        btnRemove5.setBackground(new java.awt.Color(51, 51, 51));
-        btnRemove5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnRemove5.setForeground(new java.awt.Color(255, 255, 255));
-        btnRemove5.setText("-");
-        btnRemove5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemove5ActionPerformed(evt);
-            }
-        });
-        ItemPanel5.add(btnRemove5);
-        btnRemove5.setBounds(370, 10, 50, 50);
-
-        txtQty5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
-        txtQty5.setForeground(new java.awt.Color(0, 0, 0));
-        txtQty5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtQty5.setText("0");
-        ItemPanel5.add(txtQty5);
-        txtQty5.setBounds(320, 10, 50, 50);
-
-        btnAdd5.setBackground(new java.awt.Color(51, 51, 51));
-        btnAdd5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnAdd5.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd5.setText("+");
-        ItemPanel5.add(btnAdd5);
-        btnAdd5.setBounds(270, 10, 50, 50);
-
-        PlaceOrder.add(ItemPanel5);
-        ItemPanel5.setBounds(60, 350, 440, 70);
-
-        BackgroundImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/Background.png"))); // NOI18N
-        PlaceOrder.add(BackgroundImage2);
-        BackgroundImage2.setBounds(0, 0, 1067, 612);
-
-        getContentPane().add(PlaceOrder);
-        PlaceOrder.setBounds(0, 0, 1070, 610);
-
         PickSeat.setLayout(null);
 
         btnT3.setBackground(new java.awt.Color(234, 240, 240));
         btnT3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btnT3.setForeground(new java.awt.Color(0, 0, 0));
         btnT3.setText("TC");
+        btnT3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT3ActionPerformed(evt);
+            }
+        });
         PickSeat.add(btnT3);
         btnT3.setBounds(520, 190, 90, 70);
 
@@ -486,6 +144,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnT1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btnT1.setForeground(new java.awt.Color(0, 0, 0));
         btnT1.setText("TA");
+        btnT1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT1ActionPerformed(evt);
+            }
+        });
         PickSeat.add(btnT1);
         btnT1.setBounds(220, 190, 90, 70);
 
@@ -582,6 +245,353 @@ public class MainMenu extends javax.swing.JFrame {
         getContentPane().add(PickSeat);
         PickSeat.setBounds(0, 0, 1070, 610);
 
+        PlaceOrder.setLayout(null);
+
+        makePurchesPanel.setBackground(new java.awt.Color(255, 255, 255));
+        makePurchesPanel.setForeground(new java.awt.Color(169, 169, 169));
+        makePurchesPanel.setLayout(null);
+
+        txtTotPrice.setBackground(new java.awt.Color(0, 0, 0));
+        txtTotPrice.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
+        txtTotPrice.setForeground(new java.awt.Color(0, 0, 0));
+        txtTotPrice.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtTotPrice.setText("Rs 0");
+        makePurchesPanel.add(txtTotPrice);
+        txtTotPrice.setBounds(180, 10, 150, 60);
+
+        btnSendOrder.setBackground(new java.awt.Color(229, 178, 0));
+        btnSendOrder.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnSendOrder.setForeground(new java.awt.Color(0, 0, 0));
+        btnSendOrder.setText("SEND ORDER");
+        btnSendOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSendOrderActionPerformed(evt);
+            }
+        });
+        makePurchesPanel.add(btnSendOrder);
+        btnSendOrder.setBounds(190, 120, 160, 60);
+
+        btnCancelOrder.setBackground(new java.awt.Color(214, 55, 55));
+        btnCancelOrder.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnCancelOrder.setForeground(new java.awt.Color(0, 0, 0));
+        btnCancelOrder.setText("CANCEL ORDER");
+        btnCancelOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelOrderActionPerformed(evt);
+            }
+        });
+        makePurchesPanel.add(btnCancelOrder);
+        btnCancelOrder.setBounds(20, 120, 160, 60);
+
+        txtTot.setBackground(new java.awt.Color(0, 0, 0));
+        txtTot.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
+        txtTot.setForeground(new java.awt.Color(0, 0, 0));
+        txtTot.setText("TOTAL");
+        makePurchesPanel.add(txtTot);
+        txtTot.setBounds(10, 10, 130, 60);
+
+        txtLine2.setBackground(new java.awt.Color(144, 144, 144));
+        txtLine2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtLine2.setText("-----------------------------------------------------------------");
+        makePurchesPanel.add(txtLine2);
+        txtLine2.setBounds(0, 80, 370, 20);
+
+        PlaceOrder.add(makePurchesPanel);
+        makePurchesPanel.setBounds(690, 380, 370, 210);
+
+        AdditionalInfo.setBackground(new java.awt.Color(255, 255, 255));
+        AdditionalInfo.setLayout(null);
+
+        txtAdditionalInfo.setBackground(new java.awt.Color(0, 0, 0));
+        txtAdditionalInfo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        txtAdditionalInfo.setForeground(new java.awt.Color(0, 0, 0));
+        txtAdditionalInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAdditionalInfo.setText("ADDITIONAL INFO");
+        AdditionalInfo.add(txtAdditionalInfo);
+        txtAdditionalInfo.setBounds(30, 10, 290, 60);
+
+        txtline.setBackground(new java.awt.Color(144, 144, 144));
+        txtline.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtline.setText("-----------------------------------------------------------------");
+        AdditionalInfo.add(txtline);
+        txtline.setBounds(0, 60, 370, 20);
+
+        scrAdditionalInfo.setBackground(new java.awt.Color(255, 255, 255));
+
+        inputTxtAdditionalInfo.setBackground(new java.awt.Color(255, 255, 255));
+        inputTxtAdditionalInfo.setColumns(20);
+        inputTxtAdditionalInfo.setForeground(new java.awt.Color(0, 0, 0));
+        inputTxtAdditionalInfo.setRows(5);
+        scrAdditionalInfo.setViewportView(inputTxtAdditionalInfo);
+
+        AdditionalInfo.add(scrAdditionalInfo);
+        scrAdditionalInfo.setBounds(10, 80, 340, 170);
+
+        PlaceOrder.add(AdditionalInfo);
+        AdditionalInfo.setBounds(690, 70, 360, 260);
+
+        ItemPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        ItemPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        ItemPanel2.setForeground(new java.awt.Color(169, 169, 169));
+        ItemPanel2.setLayout(null);
+
+        picItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/pizzaIcon.jpg"))); // NOI18N
+        ItemPanel2.add(picItem2);
+        picItem2.setBounds(10, 10, 50, 50);
+
+        txtSalad2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        txtSalad2.setForeground(new java.awt.Color(0, 0, 0));
+        txtSalad2.setText("PIZZA");
+        ItemPanel2.add(txtSalad2);
+        txtSalad2.setBounds(80, 20, 100, 16);
+
+        txtPrice2.setBackground(new java.awt.Color(0, 0, 0));
+        txtPrice2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        txtPrice2.setForeground(new java.awt.Color(0, 0, 0));
+        txtPrice2.setText("Rs 1200");
+        ItemPanel2.add(txtPrice2);
+        txtPrice2.setBounds(80, 40, 41, 16);
+
+        btnRemove2.setBackground(new java.awt.Color(51, 51, 51));
+        btnRemove2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnRemove2.setForeground(new java.awt.Color(255, 255, 255));
+        btnRemove2.setText("-");
+        btnRemove2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemove2ActionPerformed(evt);
+            }
+        });
+        ItemPanel2.add(btnRemove2);
+        btnRemove2.setBounds(370, 10, 50, 50);
+
+        txtQty2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
+        txtQty2.setForeground(new java.awt.Color(0, 0, 0));
+        txtQty2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtQty2.setText("0");
+        ItemPanel2.add(txtQty2);
+        txtQty2.setBounds(320, 10, 50, 50);
+
+        btnAdd2.setBackground(new java.awt.Color(51, 51, 51));
+        btnAdd2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnAdd2.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd2.setText("+");
+        ItemPanel2.add(btnAdd2);
+        btnAdd2.setBounds(270, 10, 50, 50);
+
+        PlaceOrder.add(ItemPanel2);
+        ItemPanel2.setBounds(60, 260, 440, 70);
+
+        ItemPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        ItemPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        ItemPanel1.setForeground(new java.awt.Color(169, 169, 169));
+        ItemPanel1.setLayout(null);
+
+        picItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/burgerIcon.png"))); // NOI18N
+        ItemPanel1.add(picItem1);
+        picItem1.setBounds(10, 10, 50, 50);
+
+        txtSalad1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        txtSalad1.setForeground(new java.awt.Color(0, 0, 0));
+        txtSalad1.setText("BURGER");
+        ItemPanel1.add(txtSalad1);
+        txtSalad1.setBounds(80, 20, 100, 16);
+
+        txtPrice1.setBackground(new java.awt.Color(0, 0, 0));
+        txtPrice1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        txtPrice1.setForeground(new java.awt.Color(0, 0, 0));
+        txtPrice1.setText("Rs 500");
+        ItemPanel1.add(txtPrice1);
+        txtPrice1.setBounds(80, 40, 36, 16);
+
+        btnRemove1.setBackground(new java.awt.Color(51, 51, 51));
+        btnRemove1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnRemove1.setForeground(new java.awt.Color(255, 255, 255));
+        btnRemove1.setText("-");
+        btnRemove1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemove1ActionPerformed(evt);
+            }
+        });
+        ItemPanel1.add(btnRemove1);
+        btnRemove1.setBounds(370, 10, 50, 50);
+
+        txtQty1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
+        txtQty1.setForeground(new java.awt.Color(0, 0, 0));
+        txtQty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtQty1.setText("0");
+        ItemPanel1.add(txtQty1);
+        txtQty1.setBounds(320, 10, 50, 50);
+
+        btnAdd1.setBackground(new java.awt.Color(51, 51, 51));
+        btnAdd1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnAdd1.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd1.setText("+");
+        ItemPanel1.add(btnAdd1);
+        btnAdd1.setBounds(270, 10, 50, 50);
+
+        PlaceOrder.add(ItemPanel1);
+        ItemPanel1.setBounds(60, 170, 440, 70);
+
+        ItemPanel.setBackground(new java.awt.Color(255, 255, 255));
+        ItemPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        ItemPanel.setForeground(new java.awt.Color(169, 169, 169));
+        ItemPanel.setLayout(null);
+
+        picItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/saladIcon.png"))); // NOI18N
+        ItemPanel.add(picItem);
+        picItem.setBounds(10, 10, 50, 50);
+
+        txtSalad.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        txtSalad.setForeground(new java.awt.Color(0, 0, 0));
+        txtSalad.setText("SALAD");
+        ItemPanel.add(txtSalad);
+        txtSalad.setBounds(80, 20, 100, 16);
+
+        txtPrice.setBackground(new java.awt.Color(0, 0, 0));
+        txtPrice.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        txtPrice.setForeground(new java.awt.Color(0, 0, 0));
+        txtPrice.setText("Rs 300");
+        ItemPanel.add(txtPrice);
+        txtPrice.setBounds(80, 40, 36, 16);
+
+        btnRemove.setBackground(new java.awt.Color(51, 51, 51));
+        btnRemove.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnRemove.setForeground(new java.awt.Color(255, 255, 255));
+        btnRemove.setText("-");
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveActionPerformed(evt);
+            }
+        });
+        ItemPanel.add(btnRemove);
+        btnRemove.setBounds(370, 10, 50, 50);
+
+        txtQty.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
+        txtQty.setForeground(new java.awt.Color(0, 0, 0));
+        txtQty.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtQty.setText("0");
+        ItemPanel.add(txtQty);
+        txtQty.setBounds(320, 10, 50, 50);
+
+        btnAdd.setBackground(new java.awt.Color(51, 51, 51));
+        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setText("+");
+        ItemPanel.add(btnAdd);
+        btnAdd.setBounds(270, 10, 50, 50);
+
+        PlaceOrder.add(ItemPanel);
+        ItemPanel.setBounds(60, 70, 440, 70);
+
+        ItemPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        ItemPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        ItemPanel4.setForeground(new java.awt.Color(169, 169, 169));
+        ItemPanel4.setLayout(null);
+
+        picItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/chickenWingsIcon.png"))); // NOI18N
+        ItemPanel4.add(picItem4);
+        picItem4.setBounds(10, 10, 50, 50);
+
+        txtSalad4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        txtSalad4.setForeground(new java.awt.Color(0, 0, 0));
+        txtSalad4.setText("chicken wings");
+        ItemPanel4.add(txtSalad4);
+        txtSalad4.setBounds(80, 20, 100, 16);
+
+        txtPrice4.setBackground(new java.awt.Color(0, 0, 0));
+        txtPrice4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        txtPrice4.setForeground(new java.awt.Color(0, 0, 0));
+        txtPrice4.setText("Rs 800");
+        ItemPanel4.add(txtPrice4);
+        txtPrice4.setBounds(80, 40, 36, 16);
+
+        btnRemove4.setBackground(new java.awt.Color(51, 51, 51));
+        btnRemove4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnRemove4.setForeground(new java.awt.Color(255, 255, 255));
+        btnRemove4.setText("-");
+        btnRemove4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemove4ActionPerformed(evt);
+            }
+        });
+        ItemPanel4.add(btnRemove4);
+        btnRemove4.setBounds(370, 10, 50, 50);
+
+        txtQty4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
+        txtQty4.setForeground(new java.awt.Color(0, 0, 0));
+        txtQty4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtQty4.setText("0");
+        ItemPanel4.add(txtQty4);
+        txtQty4.setBounds(320, 10, 50, 50);
+
+        btnAdd4.setBackground(new java.awt.Color(51, 51, 51));
+        btnAdd4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnAdd4.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd4.setText("+");
+        ItemPanel4.add(btnAdd4);
+        btnAdd4.setBounds(270, 10, 50, 50);
+
+        PlaceOrder.add(ItemPanel4);
+        ItemPanel4.setBounds(60, 440, 440, 70);
+
+        ItemPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        ItemPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        ItemPanel5.setForeground(new java.awt.Color(169, 169, 169));
+        ItemPanel5.setLayout(null);
+
+        picItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/frenchFriesIcon.png"))); // NOI18N
+        ItemPanel5.add(picItem5);
+        picItem5.setBounds(10, 10, 50, 50);
+
+        txtSalad5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        txtSalad5.setForeground(new java.awt.Color(0, 0, 0));
+        txtSalad5.setText("FRENCH FRIES");
+        ItemPanel5.add(txtSalad5);
+        txtSalad5.setBounds(80, 20, 100, 16);
+
+        txtPrice5.setBackground(new java.awt.Color(0, 0, 0));
+        txtPrice5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        txtPrice5.setForeground(new java.awt.Color(0, 0, 0));
+        txtPrice5.setText("Rs 400");
+        ItemPanel5.add(txtPrice5);
+        txtPrice5.setBounds(80, 40, 36, 16);
+
+        btnRemove5.setBackground(new java.awt.Color(51, 51, 51));
+        btnRemove5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnRemove5.setForeground(new java.awt.Color(255, 255, 255));
+        btnRemove5.setText("-");
+        btnRemove5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemove5ActionPerformed(evt);
+            }
+        });
+        ItemPanel5.add(btnRemove5);
+        btnRemove5.setBounds(370, 10, 50, 50);
+
+        txtQty5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
+        txtQty5.setForeground(new java.awt.Color(0, 0, 0));
+        txtQty5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtQty5.setText("0");
+        ItemPanel5.add(txtQty5);
+        txtQty5.setBounds(320, 10, 50, 50);
+
+        btnAdd5.setBackground(new java.awt.Color(51, 51, 51));
+        btnAdd5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnAdd5.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd5.setText("+");
+        ItemPanel5.add(btnAdd5);
+        btnAdd5.setBounds(270, 10, 50, 50);
+
+        PlaceOrder.add(ItemPanel5);
+        ItemPanel5.setBounds(60, 350, 440, 70);
+
+        BackgroundImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/Background.png"))); // NOI18N
+        PlaceOrder.add(BackgroundImage2);
+        BackgroundImage2.setBounds(0, 0, 1067, 612);
+
+        getContentPane().add(PlaceOrder);
+        PlaceOrder.setBounds(0, 0, 1070, 610);
+
         pickMenu.setLayout(null);
 
         btnTrackOrder.setBackground(new java.awt.Color(244, 119, 0));
@@ -657,6 +667,14 @@ public class MainMenu extends javax.swing.JFrame {
     private void btnCancelOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelOrderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelOrderActionPerformed
+
+    private void btnT3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnT3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnT3ActionPerformed
+
+    private void btnT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnT1ActionPerformed
+        PickSeat.setVisible(false); 
+    }//GEN-LAST:event_btnT1ActionPerformed
 
     /**
      * @param args the command line arguments
