@@ -44,6 +44,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnOrder.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         btnOrder.setForeground(new java.awt.Color(249, 249, 249));
         btnOrder.setText("ORDER FOODS");
+        btnOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnOrder);
         btnOrder.setBounds(150, 140, 330, 420);
 
@@ -53,6 +58,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOrderActionPerformed
 
     /**
      * @param args the command line arguments
