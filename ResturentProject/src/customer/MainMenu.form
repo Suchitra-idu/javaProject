@@ -58,7 +58,7 @@
         <Component class="javax.swing.JButton" name="btnOrder">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="b2" red="e5" type="rgb"/>
+              <Color blue="0" green="7a" red="9e" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Black" size="36" style="1"/>
