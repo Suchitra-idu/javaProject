@@ -26,6 +26,15 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PlaceOrder = new javax.swing.JPanel();
+        ItemPanel = new javax.swing.JPanel();
+        picItem = new javax.swing.JLabel();
+        txtSalad = new javax.swing.JLabel();
+        txtPrice = new javax.swing.JLabel();
+        btnRemove = new javax.swing.JButton();
+        txtQty = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JButton();
+        BackgroundImage2 = new javax.swing.JLabel();
         PickSeat = new javax.swing.JPanel();
         btnT3 = new javax.swing.JButton();
         btnT4 = new javax.swing.JButton();
@@ -51,6 +60,66 @@ public class MainMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+
+        PlaceOrder.setLayout(null);
+
+        ItemPanel.setBackground(new java.awt.Color(255, 255, 255));
+        ItemPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        ItemPanel.setForeground(new java.awt.Color(255, 255, 255));
+        ItemPanel.setLayout(null);
+
+        picItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/saladIcon.png"))); // NOI18N
+        ItemPanel.add(picItem);
+        picItem.setBounds(10, 10, 50, 50);
+
+        txtSalad.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        txtSalad.setForeground(new java.awt.Color(0, 0, 0));
+        txtSalad.setText("SALAD");
+        ItemPanel.add(txtSalad);
+        txtSalad.setBounds(80, 20, 100, 16);
+
+        txtPrice.setBackground(new java.awt.Color(0, 0, 0));
+        txtPrice.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        txtPrice.setForeground(new java.awt.Color(0, 0, 0));
+        txtPrice.setText("Rs 300");
+        ItemPanel.add(txtPrice);
+        txtPrice.setBounds(80, 40, 34, 16);
+
+        btnRemove.setBackground(new java.awt.Color(51, 51, 51));
+        btnRemove.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnRemove.setForeground(new java.awt.Color(255, 255, 255));
+        btnRemove.setText("-");
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveActionPerformed(evt);
+            }
+        });
+        ItemPanel.add(btnRemove);
+        btnRemove.setBounds(370, 10, 50, 50);
+
+        txtQty.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        txtQty.setForeground(new java.awt.Color(0, 0, 0));
+        txtQty.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtQty.setText("0");
+        ItemPanel.add(txtQty);
+        txtQty.setBounds(320, 10, 50, 50);
+
+        btnAdd.setBackground(new java.awt.Color(51, 51, 51));
+        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setText("+");
+        ItemPanel.add(btnAdd);
+        btnAdd.setBounds(270, 10, 50, 50);
+
+        PlaceOrder.add(ItemPanel);
+        ItemPanel.setBounds(60, 70, 440, 70);
+
+        BackgroundImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/Background.png"))); // NOI18N
+        PlaceOrder.add(BackgroundImage2);
+        BackgroundImage2.setBounds(0, 0, 1067, 612);
+
+        getContentPane().add(PlaceOrder);
+        PlaceOrder.setBounds(0, 0, 1070, 610);
 
         PickSeat.setLayout(null);
 
@@ -235,6 +304,10 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnT7ActionPerformed
 
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRemoveActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -273,8 +346,13 @@ public class MainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BackgroundImage;
     private javax.swing.JLabel BackgroundImage1;
+    private javax.swing.JLabel BackgroundImage2;
+    private javax.swing.JPanel ItemPanel;
     private javax.swing.JPanel PickSeat;
+    private javax.swing.JPanel PlaceOrder;
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnOrder;
+    private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnT1;
     private javax.swing.JButton btnT10;
     private javax.swing.JButton btnT11;
@@ -292,6 +370,10 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnT9;
     private javax.swing.JButton btnTrackOrder;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel picItem;
     private javax.swing.JPanel pickMenu;
+    private javax.swing.JLabel txtPrice;
+    private javax.swing.JLabel txtQty;
+    private javax.swing.JLabel txtSalad;
     // End of variables declaration//GEN-END:variables
 }
