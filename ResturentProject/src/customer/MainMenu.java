@@ -38,6 +38,11 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pickMenu = new javax.swing.JPanel();
+        btnTrackOrder = new javax.swing.JButton();
+        btnOrder = new javax.swing.JButton();
+        btnBack1 = new javax.swing.JButton();
+        BackgroundImage = new javax.swing.JLabel();
         PlaceOrder = new javax.swing.JPanel();
         makePurchesPanel = new javax.swing.JPanel();
         txtTotPrice = new javax.swing.JLabel();
@@ -87,11 +92,6 @@ public class MainMenu extends javax.swing.JFrame {
         btnAdd5 = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         BackgroundImage2 = new javax.swing.JLabel();
-        pickMenu = new javax.swing.JPanel();
-        btnTrackOrder = new javax.swing.JButton();
-        btnOrder = new javax.swing.JButton();
-        btnBack1 = new javax.swing.JButton();
-        BackgroundImage = new javax.swing.JLabel();
         PickSeat = new javax.swing.JPanel();
         btnT3 = new javax.swing.JButton();
         btnT4 = new javax.swing.JButton();
@@ -113,6 +113,46 @@ public class MainMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+
+        pickMenu.setLayout(null);
+
+        btnTrackOrder.setBackground(new java.awt.Color(244, 119, 0));
+        btnTrackOrder.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        btnTrackOrder.setForeground(new java.awt.Color(249, 249, 249));
+        btnTrackOrder.setText("TRACK ORDER");
+        pickMenu.add(btnTrackOrder);
+        btnTrackOrder.setBounds(600, 140, 330, 420);
+
+        btnOrder.setBackground(new java.awt.Color(229, 178, 0));
+        btnOrder.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        btnOrder.setForeground(new java.awt.Color(249, 249, 249));
+        btnOrder.setText("ORDER FOODS");
+        btnOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderActionPerformed(evt);
+            }
+        });
+        pickMenu.add(btnOrder);
+        btnOrder.setBounds(150, 140, 330, 420);
+
+        btnBack1.setBackground(new java.awt.Color(216, 81, 81));
+        btnBack1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        btnBack1.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack1.setText("BACK");
+        btnBack1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack1ActionPerformed(evt);
+            }
+        });
+        pickMenu.add(btnBack1);
+        btnBack1.setBounds(20, 20, 100, 40);
+
+        BackgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/Background.png"))); // NOI18N
+        pickMenu.add(BackgroundImage);
+        BackgroundImage.setBounds(0, 0, 1067, 612);
+
+        getContentPane().add(pickMenu);
+        pickMenu.setBounds(0, 0, 1070, 610);
 
         PlaceOrder.setLayout(null);
 
@@ -472,46 +512,6 @@ public class MainMenu extends javax.swing.JFrame {
 
         getContentPane().add(PlaceOrder);
         PlaceOrder.setBounds(0, 0, 1070, 610);
-
-        pickMenu.setLayout(null);
-
-        btnTrackOrder.setBackground(new java.awt.Color(244, 119, 0));
-        btnTrackOrder.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        btnTrackOrder.setForeground(new java.awt.Color(249, 249, 249));
-        btnTrackOrder.setText("TRACK ORDER");
-        pickMenu.add(btnTrackOrder);
-        btnTrackOrder.setBounds(600, 140, 330, 420);
-
-        btnOrder.setBackground(new java.awt.Color(229, 178, 0));
-        btnOrder.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        btnOrder.setForeground(new java.awt.Color(249, 249, 249));
-        btnOrder.setText("ORDER FOODS");
-        btnOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderActionPerformed(evt);
-            }
-        });
-        pickMenu.add(btnOrder);
-        btnOrder.setBounds(150, 140, 330, 420);
-
-        btnBack1.setBackground(new java.awt.Color(236, 90, 90));
-        btnBack1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        btnBack1.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack1.setText("BACK");
-        btnBack1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack1ActionPerformed(evt);
-            }
-        });
-        pickMenu.add(btnBack1);
-        btnBack1.setBounds(20, 20, 100, 40);
-
-        BackgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/Background.png"))); // NOI18N
-        pickMenu.add(BackgroundImage);
-        BackgroundImage.setBounds(0, 0, 1067, 612);
-
-        getContentPane().add(pickMenu);
-        pickMenu.setBounds(0, 0, 1070, 610);
 
         PickSeat.setLayout(null);
 
