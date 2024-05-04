@@ -40,7 +40,7 @@ public class MainMenu extends javax.swing.JFrame {
         getContentPane().add(btnTrackOrder);
         btnTrackOrder.setBounds(600, 140, 330, 420);
 
-        btnOrder.setBackground(new java.awt.Color(181, 141, 0));
+        btnOrder.setBackground(new java.awt.Color(229, 178, 0));
         btnOrder.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         btnOrder.setForeground(new java.awt.Color(249, 249, 249));
         btnOrder.setText("ORDER FOODS");
