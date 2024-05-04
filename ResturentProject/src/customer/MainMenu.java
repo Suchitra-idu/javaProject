@@ -59,7 +59,7 @@ public class MainMenu extends javax.swing.JFrame {
         btnT3.setForeground(new java.awt.Color(0, 0, 0));
         btnT3.setText("TC");
         PickSeat.add(btnT3);
-        btnT3.setBounds(520, 160, 80, 70);
+        btnT3.setBounds(520, 190, 90, 70);
 
         btnT4.setBackground(new java.awt.Color(234, 240, 240));
         btnT4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -71,35 +71,35 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         PickSeat.add(btnT4);
-        btnT4.setBounds(670, 160, 81, 70);
+        btnT4.setBounds(670, 190, 90, 70);
 
         btnT2.setBackground(new java.awt.Color(234, 240, 240));
         btnT2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btnT2.setForeground(new java.awt.Color(0, 0, 0));
         btnT2.setText("TB");
         PickSeat.add(btnT2);
-        btnT2.setBounds(370, 160, 80, 70);
+        btnT2.setBounds(370, 190, 90, 70);
 
         btnT5.setBackground(new java.awt.Color(234, 240, 240));
         btnT5.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btnT5.setForeground(new java.awt.Color(0, 0, 0));
         btnT5.setText("TE");
         PickSeat.add(btnT5);
-        btnT5.setBounds(810, 160, 80, 70);
+        btnT5.setBounds(810, 190, 90, 70);
 
         btnT1.setBackground(new java.awt.Color(234, 240, 240));
         btnT1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btnT1.setForeground(new java.awt.Color(0, 0, 0));
         btnT1.setText("TA");
         PickSeat.add(btnT1);
-        btnT1.setBounds(220, 160, 80, 70);
+        btnT1.setBounds(220, 190, 90, 70);
 
         btnT6.setBackground(new java.awt.Color(234, 240, 240));
         btnT6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btnT6.setForeground(new java.awt.Color(0, 0, 0));
         btnT6.setText("TJ");
         PickSeat.add(btnT6);
-        btnT6.setBounds(810, 260, 80, 70);
+        btnT6.setBounds(810, 290, 90, 70);
 
         btnT7.setBackground(new java.awt.Color(234, 240, 240));
         btnT7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -111,21 +111,21 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         PickSeat.add(btnT7);
-        btnT7.setBounds(520, 260, 82, 70);
+        btnT7.setBounds(520, 290, 90, 70);
 
         btnT8.setBackground(new java.awt.Color(234, 240, 240));
         btnT8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btnT8.setForeground(new java.awt.Color(0, 0, 0));
         btnT8.setText("TG");
         PickSeat.add(btnT8);
-        btnT8.setBounds(370, 260, 80, 70);
+        btnT8.setBounds(370, 290, 90, 70);
 
         btnT9.setBackground(new java.awt.Color(234, 240, 240));
         btnT9.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btnT9.setForeground(new java.awt.Color(0, 0, 0));
         btnT9.setText("TI");
         PickSeat.add(btnT9);
-        btnT9.setBounds(670, 260, 80, 70);
+        btnT9.setBounds(670, 290, 90, 70);
 
         btnT10.setBackground(new java.awt.Color(234, 240, 240));
         btnT10.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -137,48 +137,48 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         PickSeat.add(btnT10);
-        btnT10.setBounds(220, 260, 80, 70);
+        btnT10.setBounds(220, 290, 90, 70);
 
         btnT11.setBackground(new java.awt.Color(234, 240, 240));
         btnT11.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btnT11.setForeground(new java.awt.Color(0, 0, 0));
         btnT11.setText("TL");
         PickSeat.add(btnT11);
-        btnT11.setBounds(370, 360, 80, 70);
+        btnT11.setBounds(370, 390, 90, 70);
 
         btnT12.setBackground(new java.awt.Color(234, 240, 240));
         btnT12.setFont(new java.awt.Font("Segoe UI", 1, 34)); // NOI18N
         btnT12.setForeground(new java.awt.Color(0, 0, 0));
         btnT12.setText("TN");
         PickSeat.add(btnT12);
-        btnT12.setBounds(670, 360, 81, 70);
+        btnT12.setBounds(670, 390, 90, 70);
 
         btnT13.setBackground(new java.awt.Color(234, 240, 240));
         btnT13.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         btnT13.setForeground(new java.awt.Color(0, 0, 0));
         btnT13.setText("TK");
         PickSeat.add(btnT13);
-        btnT13.setBounds(220, 360, 80, 70);
+        btnT13.setBounds(220, 390, 90, 70);
 
         btnT14.setBackground(new java.awt.Color(234, 240, 240));
         btnT14.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         btnT14.setForeground(new java.awt.Color(0, 0, 0));
         btnT14.setText("TM");
         PickSeat.add(btnT14);
-        btnT14.setBounds(520, 360, 80, 70);
+        btnT14.setBounds(520, 390, 90, 70);
 
         btnT15.setBackground(new java.awt.Color(234, 240, 240));
         btnT15.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
         btnT15.setForeground(new java.awt.Color(0, 0, 0));
         btnT15.setText("TO");
         PickSeat.add(btnT15);
-        btnT15.setBounds(810, 360, 80, 70);
+        btnT15.setBounds(810, 390, 90, 70);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("SELECT TABLE");
         PickSeat.add(jLabel1);
-        jLabel1.setBounds(380, 50, 340, 40);
+        jLabel1.setBounds(380, 70, 340, 40);
 
         BackgroundImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/Background.png"))); // NOI18N
         PickSeat.add(BackgroundImage1);
