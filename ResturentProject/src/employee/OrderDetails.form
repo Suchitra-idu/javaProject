@@ -38,7 +38,7 @@
                   <Component id="btnCancel" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="btnFinish" min="-2" pref="175" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="134" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,7 +60,7 @@
                   </Group>
                   <Component id="jScrollPane1" min="-2" pref="275" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="1079" max="32767" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

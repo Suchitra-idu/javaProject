@@ -21,9 +21,11 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu() {
         initComponents();
         
+         
+        
          pickMenu.setVisible(false);
           PlaceOrder.setVisible(false);
-          
+                    
         foodItems.put("salad", 0);
         foodItems.put("burger", 0);
         foodItems.put("pizza", 0);
@@ -50,11 +52,27 @@ public class MainMenu extends javax.swing.JFrame {
         }
     }
 
+    public void resetAll(){
+                foodItems.put("salad", 0);
+        foodItems.put("burger", 0);
+        foodItems.put("pizza", 0);
+        foodItems.put("french fries", 0);
+        foodItems.put("chicken wings", 0);
+        
+        txtQty.setText("0");
+        txtQty1.setText("0");
+        txtQty2.setText("0");
+        txtQty5.setText("0");
+        txtQty4.setText("0");
+        
+
+    }
     
     private void handleButtonClick(String tableValue) {
     PickSeat.setVisible(false);
     pickMenu.setVisible(true);
     table = tableValue;
+    System.out.print(table);
 }
 
     /**
@@ -140,6 +158,8 @@ public class MainMenu extends javax.swing.JFrame {
         BackgroundImage1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1080, 640));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         PlaceOrder.setLayout(null);
@@ -830,7 +850,15 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSendOrderActionPerformed
 
     private void btnCancelOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelOrderActionPerformed
-        // TODO add your handling code here:
+         pickMenu.setVisible(false);
+          PlaceOrder.setVisible(false);        
+          PickSeat.setVisible(true);
+          
+          resetAll();
+          
+
+          
+          
     }//GEN-LAST:event_btnCancelOrderActionPerformed
 
     private void btnT3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnT3ActionPerformed
