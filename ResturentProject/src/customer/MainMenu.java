@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package customer;
+import java.util.HashMap;
 
 /**
  *
@@ -10,6 +11,8 @@ package customer;
  */
 public class MainMenu extends javax.swing.JFrame {
     
+    static HashMap<String, Integer> foodItems = new HashMap<String, Integer>();
+
     public String table;
 
     /**
@@ -20,8 +23,33 @@ public class MainMenu extends javax.swing.JFrame {
         
          pickMenu.setVisible(false);
           PlaceOrder.setVisible(false);
+          
+        foodItems.put("salad", 0);
+        foodItems.put("burger", 0);
+        foodItems.put("pizza", 0);
+        foodItems.put("french fries", 0);
+        foodItems.put("chicken wings", 0);
+
+        // Print the HashMap
+        System.out.println(foodItems);
         
     }
+    
+        public static void increaseValue(String key) {
+        if (foodItems.containsKey(key)) {
+            int value = foodItems.get(key);
+            foodItems.put(key, value + 1);
+        }
+    }
+
+    // Function to decrease the value by one
+    public static void decreaseValue(String key) {
+        if (foodItems.containsKey(key)) {
+            int value = foodItems.get(key);
+            foodItems.put(key, value - 1);
+        }
+    }
+
     
     private void handleButtonClick(String tableValue) {
     PickSeat.setVisible(false);
@@ -38,11 +66,6 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pickMenu = new javax.swing.JPanel();
-        btnTrackOrder = new javax.swing.JButton();
-        btnOrder = new javax.swing.JButton();
-        btnBack1 = new javax.swing.JButton();
-        BackgroundImage = new javax.swing.JLabel();
         PlaceOrder = new javax.swing.JPanel();
         makePurchesPanel = new javax.swing.JPanel();
         txtTotPrice = new javax.swing.JLabel();
@@ -92,6 +115,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnAdd5 = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         BackgroundImage2 = new javax.swing.JLabel();
+        pickMenu = new javax.swing.JPanel();
+        btnTrackOrder = new javax.swing.JButton();
+        btnOrder = new javax.swing.JButton();
+        btnBack1 = new javax.swing.JButton();
+        BackgroundImage = new javax.swing.JLabel();
         PickSeat = new javax.swing.JPanel();
         btnT3 = new javax.swing.JButton();
         btnT4 = new javax.swing.JButton();
@@ -113,46 +141,6 @@ public class MainMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        pickMenu.setLayout(null);
-
-        btnTrackOrder.setBackground(new java.awt.Color(244, 119, 0));
-        btnTrackOrder.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        btnTrackOrder.setForeground(new java.awt.Color(249, 249, 249));
-        btnTrackOrder.setText("TRACK ORDER");
-        pickMenu.add(btnTrackOrder);
-        btnTrackOrder.setBounds(600, 140, 330, 420);
-
-        btnOrder.setBackground(new java.awt.Color(158, 122, 0));
-        btnOrder.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        btnOrder.setForeground(new java.awt.Color(249, 249, 249));
-        btnOrder.setText("ORDER FOODS");
-        btnOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderActionPerformed(evt);
-            }
-        });
-        pickMenu.add(btnOrder);
-        btnOrder.setBounds(150, 140, 330, 420);
-
-        btnBack1.setBackground(new java.awt.Color(216, 81, 81));
-        btnBack1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        btnBack1.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack1.setText("BACK");
-        btnBack1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack1ActionPerformed(evt);
-            }
-        });
-        pickMenu.add(btnBack1);
-        btnBack1.setBounds(20, 20, 100, 40);
-
-        BackgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/Background.png"))); // NOI18N
-        pickMenu.add(BackgroundImage);
-        BackgroundImage.setBounds(0, 0, 1067, 612);
-
-        getContentPane().add(pickMenu);
-        pickMenu.setBounds(0, 0, 1070, 610);
 
         PlaceOrder.setLayout(null);
 
@@ -284,6 +272,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnAdd2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnAdd2.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd2.setText("+");
+        btnAdd2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd2ActionPerformed(evt);
+            }
+        });
         ItemPanel2.add(btnAdd2);
         btnAdd2.setBounds(270, 10, 50, 50);
 
@@ -335,6 +328,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnAdd1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnAdd1.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd1.setText("+");
+        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd1ActionPerformed(evt);
+            }
+        });
         ItemPanel1.add(btnAdd1);
         btnAdd1.setBounds(270, 10, 50, 50);
 
@@ -386,6 +384,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("+");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
         ItemPanel.add(btnAdd);
         btnAdd.setBounds(270, 10, 50, 50);
 
@@ -437,6 +440,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnAdd4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnAdd4.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd4.setText("+");
+        btnAdd4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd4ActionPerformed(evt);
+            }
+        });
         ItemPanel4.add(btnAdd4);
         btnAdd4.setBounds(270, 10, 50, 50);
 
@@ -488,6 +496,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnAdd5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnAdd5.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd5.setText("+");
+        btnAdd5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd5ActionPerformed(evt);
+            }
+        });
         ItemPanel5.add(btnAdd5);
         btnAdd5.setBounds(270, 10, 50, 50);
 
@@ -512,6 +525,46 @@ public class MainMenu extends javax.swing.JFrame {
 
         getContentPane().add(PlaceOrder);
         PlaceOrder.setBounds(0, 0, 1070, 610);
+
+        pickMenu.setLayout(null);
+
+        btnTrackOrder.setBackground(new java.awt.Color(244, 119, 0));
+        btnTrackOrder.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        btnTrackOrder.setForeground(new java.awt.Color(249, 249, 249));
+        btnTrackOrder.setText("TRACK ORDER");
+        pickMenu.add(btnTrackOrder);
+        btnTrackOrder.setBounds(600, 140, 330, 420);
+
+        btnOrder.setBackground(new java.awt.Color(158, 122, 0));
+        btnOrder.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        btnOrder.setForeground(new java.awt.Color(249, 249, 249));
+        btnOrder.setText("ORDER FOODS");
+        btnOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderActionPerformed(evt);
+            }
+        });
+        pickMenu.add(btnOrder);
+        btnOrder.setBounds(150, 140, 330, 420);
+
+        btnBack1.setBackground(new java.awt.Color(216, 81, 81));
+        btnBack1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        btnBack1.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack1.setText("BACK");
+        btnBack1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack1ActionPerformed(evt);
+            }
+        });
+        pickMenu.add(btnBack1);
+        btnBack1.setBounds(20, 20, 100, 40);
+
+        BackgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/Background.png"))); // NOI18N
+        pickMenu.add(BackgroundImage);
+        BackgroundImage.setBounds(0, 0, 1067, 612);
+
+        getContentPane().add(pickMenu);
+        pickMenu.setBounds(0, 0, 1070, 610);
 
         PickSeat.setLayout(null);
 
@@ -733,23 +786,43 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnT7ActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-        // TODO add your handling code here:
+       String foodType = "salad";
+        if(foodItems.get(foodType) > 0){
+       decreaseValue(foodType);
+       txtQty.setText(""+ foodItems.get(foodType));
+        }
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnRemove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemove1ActionPerformed
-        // TODO add your handling code here:
+              String foodType = "burger";
+        if(foodItems.get(foodType) > 0){
+       decreaseValue(foodType);
+       txtQty1.setText(""+ foodItems.get(foodType));
+        }
     }//GEN-LAST:event_btnRemove1ActionPerformed
 
     private void btnRemove2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemove2ActionPerformed
-        // TODO add your handling code here:
+               String foodType = "pizza";
+        if(foodItems.get(foodType) > 0){
+       decreaseValue(foodType);
+       txtQty2.setText(""+ foodItems.get(foodType));
+        }
     }//GEN-LAST:event_btnRemove2ActionPerformed
 
     private void btnRemove4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemove4ActionPerformed
-        // TODO add your handling code here:
+              String foodType = "chicken wings";
+        if(foodItems.get(foodType) > 0){
+       decreaseValue(foodType);
+       txtQty4.setText(""+ foodItems.get(foodType));
+        }
     }//GEN-LAST:event_btnRemove4ActionPerformed
 
     private void btnRemove5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemove5ActionPerformed
-        // TODO add your handling code here:
+               String foodType = "french fries";
+        if(foodItems.get(foodType) > 0){
+       decreaseValue(foodType);
+       txtQty5.setText(""+ foodItems.get(foodType));
+        }
     }//GEN-LAST:event_btnRemove5ActionPerformed
 
     private void btnSendOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendOrderActionPerformed
@@ -823,7 +896,6 @@ public class MainMenu extends javax.swing.JFrame {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
           pickMenu.setVisible(true);
           PlaceOrder.setVisible(false);
-          
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
@@ -831,6 +903,37 @@ public class MainMenu extends javax.swing.JFrame {
           PlaceOrder.setVisible(false);
           PickSeat.setVisible(true);
     }//GEN-LAST:event_btnBack1ActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+      String foodType = "salad";
+        increaseValue(foodType);
+       txtQty.setText(""+ foodItems.get(foodType));
+       
+        
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+      String foodType = "burger";
+        increaseValue(foodType);
+       txtQty1.setText(""+ foodItems.get(foodType));    }//GEN-LAST:event_btnAdd1ActionPerformed
+
+    private void btnAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd2ActionPerformed
+              String foodType = "pizza";
+        increaseValue(foodType);
+       txtQty2.setText(""+ foodItems.get(foodType));
+    }//GEN-LAST:event_btnAdd2ActionPerformed
+
+    private void btnAdd5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd5ActionPerformed
+              String foodType = "french fries";
+        increaseValue(foodType);
+       txtQty5.setText(""+ foodItems.get(foodType));
+    }//GEN-LAST:event_btnAdd5ActionPerformed
+
+    private void btnAdd4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd4ActionPerformed
+              String foodType = "chicken wings";
+        increaseValue(foodType);
+       txtQty4.setText(""+ foodItems.get(foodType));
+    }//GEN-LAST:event_btnAdd4ActionPerformed
 
     /**
      * @param args the command line arguments
