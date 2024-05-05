@@ -26,31 +26,79 @@ public class OrderDetails extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Orders = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Background = new javax.swing.JPanel();
         cmbOrderId = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         btnFinish = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Orders = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1100, 600));
+        setResizable(false);
+        getContentPane().setLayout(null);
+
+        Background.setForeground(new java.awt.Color(51, 204, 0));
+        Background.setLayout(null);
+
+        cmbOrderId.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        cmbOrderId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Order ID" }));
+        cmbOrderId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbOrderIdActionPerformed(evt);
+            }
+        });
+        Background.add(cmbOrderId);
+        cmbOrderId.setBounds(250, 480, 207, 40);
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jButton1.setText("TAKE ORDER");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        Background.add(jButton1);
+        jButton1.setBounds(470, 480, 175, 40);
+
+        btnCancel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btnCancel.setText("CANCEL ORDER");
+        Background.add(btnCancel);
+        btnCancel.setBounds(660, 480, 179, 40);
+
+        btnFinish.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btnFinish.setText("FINISH ORDER");
+        Background.add(btnFinish);
+        btnFinish.setBounds(850, 480, 175, 40);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("ORDER");
+        Background.add(jLabel1);
+        jLabel1.setBounds(230, 10, 130, 59);
 
         Orders.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
+        Orders.setForeground(new java.awt.Color(0, 0, 0));
         Orders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
                 "Order ID", "Table ID", "Item", "Size", "Quentity", "Extra", "Order state", "Time & Date"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true, true, true
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -58,69 +106,11 @@ public class OrderDetails extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Orders);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Orders");
+        Background.add(jScrollPane1);
+        jScrollPane1.setBounds(250, 70, 786, 390);
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton1.setText("Take orders");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        cmbOrderId.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        cmbOrderId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Order ID" }));
-        cmbOrderId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbOrderIdActionPerformed(evt);
-            }
-        });
-
-        btnCancel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnCancel.setText("Cancel order");
-
-        btnFinish.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnFinish.setText("Finish");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbOrderId, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancel)
-                    .addComponent(btnFinish, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cmbOrderId, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnFinish, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        getContentPane().add(Background);
+        Background.setBounds(0, 0, 1070, 560);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -169,6 +159,7 @@ public class OrderDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Background;
     private javax.swing.JTable Orders;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnFinish;
