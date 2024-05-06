@@ -11,6 +11,7 @@ import java.util.HashMap;
  */
 public class MainMenu extends javax.swing.JFrame {
     
+    // A hashmap that contains the item and it's quntity.
     static HashMap<String, Integer> foodItems = new HashMap<String, Integer>();
 
     public String table;
@@ -21,11 +22,11 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu() {
         initComponents();
         
-         
-        
+        //Make othetr pannles not visiblr
          pickMenu.setVisible(false);
           PlaceOrder.setVisible(false);
-                    
+        
+        // All the items that is availble in the store are initiollized in the hashmap
         foodItems.put("salad", 0);
         foodItems.put("burger", 0);
         foodItems.put("pizza", 0);
@@ -36,7 +37,7 @@ public class MainMenu extends javax.swing.JFrame {
         System.out.println(foodItems);
         
     }
-    
+       // Increase the given item quntity if the '+' button is clicked.
         public static void increaseValue(String key) {
         if (foodItems.containsKey(key)) {
             int value = foodItems.get(key);
@@ -44,7 +45,7 @@ public class MainMenu extends javax.swing.JFrame {
         }
     }
 
-    // Function to decrease the value by one
+    // Decrease the given item quntity if the '+' button is clicked.
     public static void decreaseValue(String key) {
         if (foodItems.containsKey(key)) {
             int value = foodItems.get(key);
@@ -52,6 +53,7 @@ public class MainMenu extends javax.swing.JFrame {
         }
     }
 
+    // Reset all the stored data.
     public void resetAll(){
                 foodItems.put("salad", 0);
         foodItems.put("burger", 0);
@@ -68,6 +70,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     }
     
+    // This function is used to handle the button click of selecting a table.
     private void handleButtonClick(String tableValue) {
     PickSeat.setVisible(false);
     pickMenu.setVisible(true);
@@ -812,7 +815,7 @@ public class MainMenu extends javax.swing.JFrame {
        txtQty.setText(""+ foodItems.get(foodType));
         }
     }//GEN-LAST:event_btnRemoveActionPerformed
-
+    // These are to handle the button click of adding or removing an item. 
     private void btnRemove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemove1ActionPerformed
               String foodType = "burger";
         if(foodItems.get(foodType) > 0){
@@ -848,7 +851,7 @@ public class MainMenu extends javax.swing.JFrame {
     private void btnSendOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendOrderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSendOrderActionPerformed
-
+    // To cancel the order
     private void btnCancelOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelOrderActionPerformed
          pickMenu.setVisible(false);
           PlaceOrder.setVisible(false);        
@@ -920,7 +923,7 @@ public class MainMenu extends javax.swing.JFrame {
             handleButtonClick("TO");
 
     }//GEN-LAST:event_btnT15ActionPerformed
-
+   // This is the action of the back button. 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
           pickMenu.setVisible(true);
           PlaceOrder.setVisible(false);
@@ -931,6 +934,7 @@ public class MainMenu extends javax.swing.JFrame {
           PlaceOrder.setVisible(false);
           PickSeat.setVisible(true);
     }//GEN-LAST:event_btnBack1ActionPerformed
+    // These are to handle the button click of adding or removing an item. 
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
       String foodType = "salad";
