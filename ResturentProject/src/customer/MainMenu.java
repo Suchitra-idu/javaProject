@@ -2,8 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+
 package customer;
-import java.util.HashMap;
+import database.RestaurantDatabase;
+import java.util.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Random;
+
+import java.time.format.DateTimeFormatter;
+
 
 /**
  *
@@ -12,13 +20,16 @@ import java.util.HashMap;
 public class MainMenu extends javax.swing.JFrame {
     
     // A hashmap that contains the item and it's quntity.
-    static HashMap<String, Integer> foodItems = new HashMap<String, Integer>();
-
+    static HashMap<Integer, Integer> foodItems = new HashMap<Integer, Integer>();
+    
+    
+    
     public String table;
 
     /**
      * Creates new form MainMenu
      */
+
     public MainMenu() {
         initComponents();
         
@@ -27,18 +38,20 @@ public class MainMenu extends javax.swing.JFrame {
           PlaceOrder.setVisible(false);
         
         // All the items that is availble in the store are initiollized in the hashmap
-        foodItems.put("salad", 0);
-        foodItems.put("burger", 0);
-        foodItems.put("pizza", 0);
-        foodItems.put("french fries", 0);
-        foodItems.put("chicken wings", 0);
+        foodItems.put(1, 0);
+        foodItems.put(2, 0);
+        foodItems.put(3, 0);
+        foodItems.put(4, 0);
+        foodItems.put(5, 0);
 
         // Print the HashMap
         System.out.println(foodItems);
         
+        
+        
     }
        // Increase the given item quntity if the '+' button is clicked.
-        public static void increaseValue(String key) {
+        public static void increaseValue(int key) {
         if (foodItems.containsKey(key)) {
             int value = foodItems.get(key);
             foodItems.put(key, value + 1);
@@ -46,7 +59,7 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Decrease the given item quntity if the '+' button is clicked.
-    public static void decreaseValue(String key) {
+    public static void decreaseValue(int key) {
         if (foodItems.containsKey(key)) {
             int value = foodItems.get(key);
             foodItems.put(key, value - 1);
@@ -55,11 +68,11 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Reset all the stored data.
     public void resetAll(){
-                foodItems.put("salad", 0);
-        foodItems.put("burger", 0);
-        foodItems.put("pizza", 0);
-        foodItems.put("french fries", 0);
-        foodItems.put("chicken wings", 0);
+        foodItems.put(1, 0);
+        foodItems.put(2, 0);
+        foodItems.put(3, 0);
+        foodItems.put(4, 0);
+        foodItems.put(5, 0);
         
         txtQty.setText("0");
         txtQty1.setText("0");
@@ -809,7 +822,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnT7ActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-       String foodType = "salad";
+       int foodType = 1;
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
        txtQty.setText(""+ foodItems.get(foodType));
@@ -817,7 +830,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoveActionPerformed
     // These are to handle the button click of adding or removing an item. 
     private void btnRemove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemove1ActionPerformed
-              String foodType = "burger";
+              int foodType = 2;
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
        txtQty1.setText(""+ foodItems.get(foodType));
@@ -825,7 +838,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemove1ActionPerformed
 
     private void btnRemove2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemove2ActionPerformed
-               String foodType = "pizza";
+               int foodType = 3;
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
        txtQty2.setText(""+ foodItems.get(foodType));
@@ -833,7 +846,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemove2ActionPerformed
 
     private void btnRemove4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemove4ActionPerformed
-              String foodType = "chicken wings";
+              int foodType = 4;
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
        txtQty4.setText(""+ foodItems.get(foodType));
@@ -841,7 +854,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemove4ActionPerformed
 
     private void btnRemove5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemove5ActionPerformed
-               String foodType = "french fries";
+               int foodType = 5;
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
        txtQty5.setText(""+ foodItems.get(foodType));
@@ -849,7 +862,50 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemove5ActionPerformed
 
     private void btnSendOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendOrderActionPerformed
-        // TODO add your handling code here:
+        LocalDate currentDate = LocalDate.now();
+        LocalTime currentTime = LocalTime.now();
+        List<Map<String, String>> result;
+        String sql;
+        
+        RestaurantDatabase db = new RestaurantDatabase();
+
+        Random rand = new Random();
+        int primaryKey = rand.nextInt(9000000);
+        
+
+        
+        // Now use primaryKey in your SQL query
+        
+
+        sql = "INSERT INTO `order` VALUES ('"+ primaryKey +"','" + table + "', '" + currentDate + "', '" + currentTime + "','Null',Null, 'incompleated' )";
+        result = db.executeQuery(sql);
+
+        for (HashMap.Entry<Integer, Integer> entry : foodItems.entrySet()) {
+            // If the value is greater than 0, perform an action
+            int qty = entry.getValue();
+            int foodId = entry.getKey();
+            if ( qty > 0) {
+                    sql = "INSERT INTO orderfood (quntity, orderId, foodId) VALUES ('"+ qty + "', '" + primaryKey + "', '" + foodId + "')";
+                    result = db.executeQuery(sql);
+
+            }
+        }
+
+        
+        sql = "SELECT * from `order`;";
+        result = db.executeQuery(sql);
+        System.out.println(result);
+        
+        sql = "SELECT * from orderFood;";
+        result = db.executeQuery(sql);
+        System.out.println(result);
+        
+        try {
+            db.getConnection().close();
+        } catch (Exception e) {
+            System.out.println("Error while closing the connection: " + e.getMessage());
+        }
+        
     }//GEN-LAST:event_btnSendOrderActionPerformed
     // To cancel the order
     private void btnCancelOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelOrderActionPerformed
@@ -937,7 +993,7 @@ public class MainMenu extends javax.swing.JFrame {
     // These are to handle the button click of adding or removing an item. 
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-      String foodType = "salad";
+      int foodType = 1;
         increaseValue(foodType);
        txtQty.setText(""+ foodItems.get(foodType));
        
@@ -945,24 +1001,24 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
-      String foodType = "burger";
+      int foodType = 2;
         increaseValue(foodType);
        txtQty1.setText(""+ foodItems.get(foodType));    }//GEN-LAST:event_btnAdd1ActionPerformed
 
     private void btnAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd2ActionPerformed
-              String foodType = "pizza";
+              int foodType = 3;
         increaseValue(foodType);
        txtQty2.setText(""+ foodItems.get(foodType));
     }//GEN-LAST:event_btnAdd2ActionPerformed
 
     private void btnAdd5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd5ActionPerformed
-              String foodType = "french fries";
+              int foodType = 4;
         increaseValue(foodType);
        txtQty5.setText(""+ foodItems.get(foodType));
     }//GEN-LAST:event_btnAdd5ActionPerformed
 
     private void btnAdd4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd4ActionPerformed
-              String foodType = "chicken wings";
+              int foodType = 5;
         increaseValue(foodType);
        txtQty4.setText(""+ foodItems.get(foodType));
     }//GEN-LAST:event_btnAdd4ActionPerformed
@@ -1000,6 +1056,10 @@ public class MainMenu extends javax.swing.JFrame {
                 new MainMenu().setVisible(true);
             }
         });
+        
+        
+
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
