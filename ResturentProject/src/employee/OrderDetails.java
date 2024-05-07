@@ -3,19 +3,83 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package employee;
+import database.RestaurantDatabase;
+import java.util.*;
+
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
 
 /**
  *
  * @author chatw
  */
 public class OrderDetails extends javax.swing.JFrame {
-
+    
+    private JTable Orders;
+    private DefaultTableModel OrdersModel;
     /**
      * Creates new form OrderDetails
      */
     public OrderDetails() {
         initComponents();
+        setupTable();
+
     }
+        private void setupTable() {
+        // Initialize the table model
+        OrdersModel = new DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Order ID", "Table ID", "Item", "Quantity", "Extra", "Order state", "Time & Date"
+            }
+        );
+
+//        // Initialize the table
+        Orders = new JTable(OrdersModel);
+//
+//        // Add the table to a JScrollPane and add it to your form
+        JScrollPane scrollPane = new JScrollPane(Orders);
+        scrollPane.setBounds(250, 100, 800, 350); // adjust these values as needed
+        getContentPane().add(scrollPane);
+    }
+ public void getSQL() {
+    List<Map<String, String>> result;
+    // This is to store the SQL query
+    String sql;
+
+    RestaurantDatabase db = new RestaurantDatabase();
+
+    // SQL query to get all orders with currentState = "pending", and their corresponding food item name, ordered quantity, table ID, order date, order time, and current state
+    sql = "SELECT o.orderId, o.TableId, o.orderdDate, o.orderdTime, o.currentState,o.additionalInfo, f.foodName, orderFood.quntity " +
+          "FROM `order` o " +
+          "JOIN `orderFood` ON o.orderId = `orderFood`.orderId " +
+          "JOIN food f ON `orderFood`.foodId = f.foodId " +
+          "WHERE o.currentState = 'pending';";
+
+    result = db.executeQuery(sql);
+    System.out.println(result);
+
+    try {
+        db.getConnection().close();
+    } catch (Exception e) {
+        System.out.println("Error while closing the connection: " + e.getMessage());
+    }
+    for (Map<String, String> row : result) {
+        OrdersModel.addRow(new Object[] {
+            row.get("orderId"),
+            row.get("TableId"),
+            row.get("foodName"),
+            row.get("quntity"),
+            row.get("additionalInfo"),
+            row.get("currentState"),
+            row.get("orderdTime") // Time & Date
+        });
+    }
+
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,22 +90,17 @@ public class OrderDetails extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Background = new javax.swing.JPanel();
         cmbOrderId = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        btnFinish = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Orders = new javax.swing.JTable();
+        btnFinish1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1100, 600));
         setResizable(false);
         getContentPane().setLayout(null);
-
-        Background.setForeground(new java.awt.Color(51, 204, 0));
-        Background.setLayout(null);
 
         cmbOrderId.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         cmbOrderId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Order ID" }));
@@ -50,7 +109,7 @@ public class OrderDetails extends javax.swing.JFrame {
                 cmbOrderIdActionPerformed(evt);
             }
         });
-        Background.add(cmbOrderId);
+        getContentPane().add(cmbOrderId);
         cmbOrderId.setBounds(250, 480, 207, 40);
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -60,57 +119,34 @@ public class OrderDetails extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        Background.add(jButton1);
+        getContentPane().add(jButton1);
         jButton1.setBounds(470, 480, 175, 40);
 
         btnCancel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         btnCancel.setText("CANCEL ORDER");
-        Background.add(btnCancel);
+        getContentPane().add(btnCancel);
         btnCancel.setBounds(660, 480, 179, 40);
 
-        btnFinish.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnFinish.setText("FINISH ORDER");
-        Background.add(btnFinish);
-        btnFinish.setBounds(850, 480, 175, 40);
+        btnReset.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btnReset.setText("RESET");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReset);
+        btnReset.setBounds(860, 20, 175, 40);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ORDER");
-        Background.add(jLabel1);
+        getContentPane().add(jLabel1);
         jLabel1.setBounds(230, 10, 130, 59);
 
-        Orders.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        Orders.setForeground(new java.awt.Color(0, 0, 0));
-        Orders.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Order ID", "Table ID", "Item", "Size", "Quentity", "Extra", "Order state", "Time & Date"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(Orders);
-
-        Background.add(jScrollPane1);
-        jScrollPane1.setBounds(250, 70, 786, 390);
-
-        getContentPane().add(Background);
-        Background.setBounds(0, 0, 1070, 560);
+        btnFinish1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btnFinish1.setText("FINISH ORDER");
+        getContentPane().add(btnFinish1);
+        btnFinish1.setBounds(850, 480, 175, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -122,6 +158,10 @@ public class OrderDetails extends javax.swing.JFrame {
     private void cmbOrderIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrderIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbOrderIdActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        getSQL();
+    }//GEN-LAST:event_btnResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,17 +195,17 @@ public class OrderDetails extends javax.swing.JFrame {
             public void run() {
                 new OrderDetails().setVisible(true);
             }
+            
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Background;
-    private javax.swing.JTable Orders;
     private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnFinish;
+    private javax.swing.JButton btnFinish1;
+    private javax.swing.JButton btnReset;
     private javax.swing.JComboBox<String> cmbOrderId;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

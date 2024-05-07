@@ -25,6 +25,7 @@ public class MainMenu extends javax.swing.JFrame {
     
     
     public String table;
+    public float totalPrice;
 
     /**
      * Creates new form MainMenu
@@ -826,6 +827,9 @@ public class MainMenu extends javax.swing.JFrame {
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
        txtQty.setText(""+ foodItems.get(foodType));
+       
+              totalPrice = totalPrice - 300;
+       txtTotPrice.setText("" + totalPrice);
         }
     }//GEN-LAST:event_btnRemoveActionPerformed
     // These are to handle the button click of adding or removing an item. 
@@ -834,6 +838,9 @@ public class MainMenu extends javax.swing.JFrame {
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
        txtQty1.setText(""+ foodItems.get(foodType));
+       
+              totalPrice = totalPrice - 500;
+       txtTotPrice.setText("" + totalPrice);
         }
     }//GEN-LAST:event_btnRemove1ActionPerformed
 
@@ -841,7 +848,10 @@ public class MainMenu extends javax.swing.JFrame {
                int foodType = 3;
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
+       
        txtQty2.setText(""+ foodItems.get(foodType));
+              totalPrice = totalPrice -1200;
+       txtTotPrice.setText("" + totalPrice);
         }
     }//GEN-LAST:event_btnRemove2ActionPerformed
 
@@ -849,6 +859,8 @@ public class MainMenu extends javax.swing.JFrame {
               int foodType = 4;
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
+              totalPrice = totalPrice - 800;
+       txtTotPrice.setText("" + totalPrice);
        txtQty4.setText(""+ foodItems.get(foodType));
         }
     }//GEN-LAST:event_btnRemove4ActionPerformed
@@ -857,6 +869,8 @@ public class MainMenu extends javax.swing.JFrame {
                int foodType = 5;
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
+              totalPrice = totalPrice - 400;
+       txtTotPrice.setText("" + totalPrice);
        txtQty5.setText(""+ foodItems.get(foodType));
         }
     }//GEN-LAST:event_btnRemove5ActionPerformed
@@ -864,22 +878,26 @@ public class MainMenu extends javax.swing.JFrame {
     private void btnSendOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendOrderActionPerformed
         LocalDate currentDate = LocalDate.now();
         LocalTime currentTime = LocalTime.now();
+        
+        //this is to store if there is an SQL output
         List<Map<String, String>> result;
+        // This is to store the SQL query
         String sql;
         
         RestaurantDatabase db = new RestaurantDatabase();
-
+        
+        // Randomly genarate a primary key (Not the most optimal methord, change if there are any time left)
         Random rand = new Random();
         int primaryKey = rand.nextInt(9000000);
+       
         
-
+       
         
-        // Now use primaryKey in your SQL query
-        
-
-        sql = "INSERT INTO `order` VALUES ('"+ primaryKey +"','" + table + "', '" + currentDate + "', '" + currentTime + "','Null',Null, 'incompleated' )";
+        // Store order data in order table
+        sql = "INSERT INTO `order` VALUES ('"+ primaryKey +"','" + table + "', '" + currentDate + "', '" + currentTime + "','"+inputTxtAdditionalInfo.getText()+"',Null, 'pending' )";
         result = db.executeQuery(sql);
 
+        // orderd item will be stored in orderItem table.
         for (HashMap.Entry<Integer, Integer> entry : foodItems.entrySet()) {
             // If the value is greater than 0, perform an action
             int qty = entry.getValue();
@@ -891,7 +909,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         }
 
-        
+        // For debugging
         sql = "SELECT * from `order`;";
         result = db.executeQuery(sql);
         System.out.println(result);
@@ -997,17 +1015,24 @@ public class MainMenu extends javax.swing.JFrame {
         increaseValue(foodType);
        txtQty.setText(""+ foodItems.get(foodType));
        
+       totalPrice = totalPrice + 300;
+       txtTotPrice.setText("" + totalPrice);
+       
         
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
       int foodType = 2;
         increaseValue(foodType);
+               totalPrice = totalPrice + 500;
+       txtTotPrice.setText("" + totalPrice);
        txtQty1.setText(""+ foodItems.get(foodType));    }//GEN-LAST:event_btnAdd1ActionPerformed
 
     private void btnAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd2ActionPerformed
               int foodType = 3;
         increaseValue(foodType);
+               totalPrice = totalPrice + 1200;
+       txtTotPrice.setText("" + totalPrice);
        txtQty2.setText(""+ foodItems.get(foodType));
     }//GEN-LAST:event_btnAdd2ActionPerformed
 
@@ -1015,12 +1040,16 @@ public class MainMenu extends javax.swing.JFrame {
               int foodType = 4;
         increaseValue(foodType);
        txtQty5.setText(""+ foodItems.get(foodType));
+              totalPrice = totalPrice + 400;
+       txtTotPrice.setText("" + totalPrice);
     }//GEN-LAST:event_btnAdd5ActionPerformed
 
     private void btnAdd4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd4ActionPerformed
               int foodType = 5;
         increaseValue(foodType);
        txtQty4.setText(""+ foodItems.get(foodType));
+              totalPrice = totalPrice + 800;
+       txtTotPrice.setText("" + totalPrice);
     }//GEN-LAST:event_btnAdd4ActionPerformed
 
     /**
