@@ -2,8 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+
 package customer;
-import java.util.HashMap;
+import database.RestaurantDatabase;
+import java.awt.Container;
+import java.util.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Random;
+import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+
+import java.time.format.DateTimeFormatter;
+
 
 /**
  *
@@ -12,41 +24,187 @@ import java.util.HashMap;
 public class MainMenu extends javax.swing.JFrame {
     
     // A hashmap that contains the item and it's quntity.
-    static HashMap<String, Integer> foodItems = new HashMap<String, Integer>();
-
+    static HashMap<Integer, Integer> foodItems = new HashMap<Integer, Integer>();
+    
+    
+    
     public String table;
+    public float totalPrice;
 
     /**
      * Creates new form MainMenu
      */
+
     public MainMenu() {
         initComponents();
+
+       
+
         
         //Make othetr pannles not visiblr
+
          pickMenu.setVisible(false);
           PlaceOrder.setVisible(false);
+           //trackOrder.setVisible(false);
         
         // All the items that is availble in the store are initiollized in the hashmap
-        foodItems.put("salad", 0);
-        foodItems.put("burger", 0);
-        foodItems.put("pizza", 0);
-        foodItems.put("french fries", 0);
-        foodItems.put("chicken wings", 0);
+        foodItems.put(1, 0);
+        foodItems.put(2, 0);
+        foodItems.put(3, 0);
+        foodItems.put(4, 0);
+        foodItems.put(5, 0);
 
         // Print the HashMap
         System.out.println(foodItems);
         
+        
+        
     }
-       // Increase the given item quntity if the '+' button is clicked.
-        public static void increaseValue(String key) {
+    
+    //This is a class to create a new food item
+    public class TrackFoodItemTemplate {
+
+public TrackFoodItemTemplate() {
+        trackOrder = new javax.swing.JPanel();
+        BackgroundImage3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel(); // Initialize jLabel2 here
+
+        trackOrder.setLayout(null);
+
+
+        btnBack.setBackground(new java.awt.Color(216, 81, 81));
+        btnBack.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("BACK");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack1ActionPerformed(evt);
+            }
+        });
+        trackOrder.add(btnBack);
+        btnBack.setBounds(20, 20, 100, 40);
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("TRACK ORDER");
+        trackOrder.add(jLabel2);
+        jLabel2.setBounds(380, 30, 340, 40);
+
+        getContentPane().add(trackOrder);
+        trackOrder.setBounds(0, 0, 1070, 600);
+    }
+        public void addTemplate(int ox, int oy, String imgPath, String itemName, String itemState){
+        itemTemplate = new javax.swing.JPanel();
+        picsureOfFood = new javax.swing.JLabel();
+        txtFoodName = new javax.swing.JLabel();
+        txtState = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();    
+            
+        
+        itemTemplate.setBackground(new java.awt.Color(255, 255, 255));
+        itemTemplate.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        itemTemplate.setForeground(new java.awt.Color(169, 169, 169));
+        itemTemplate.setLayout(null);
+
+        picsureOfFood.setIcon(new javax.swing.ImageIcon(getClass().getResource(imgPath))); // NOI18N
+        itemTemplate.add(picsureOfFood);
+        picsureOfFood.setBounds(10  , 10 , 50, 50);
+
+        txtFoodName.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        txtFoodName.setForeground(new java.awt.Color(0, 0, 0));
+        txtFoodName.setText(itemName);
+        itemTemplate.add(txtFoodName);
+        txtFoodName.setBounds(80 , 10 , 100, 20);
+
+        txtState.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        txtState.setForeground(new java.awt.Color(0, 0, 0));
+        txtState.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        txtState.setText(itemState);
+        itemTemplate.add(txtState);
+        txtState.setBounds(80 , 20 , 250, 50);
+
+        trackOrder.add(itemTemplate);
+        itemTemplate.setBounds(70 + ox, 140 + oy, 440, 70);
+
+
+        }
+        
+        public void addBackroundImage(){
+                    BackgroundImage3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/Background.png"))); // NOI18N
+        trackOrder.add(BackgroundImage3);
+        BackgroundImage3.setBounds(0, 0, 1067, 612);
+        }
+    }
+// Increase the given item quntity if the '+' button is clicked.
+        public static void increaseValue(int key) {
         if (foodItems.containsKey(key)) {
             int value = foodItems.get(key);
             foodItems.put(key, value + 1);
         }
     }
+        
+   public void addTrackedItems(){
+    if(trackOrder != null) {
+        getContentPane().remove(trackOrder);
+    }    getContentPane().repaint() ;  
+       
+    
+    //this is to store if there is an SQL output
+    List<Map<String, String>> result;
+    // This is to store the SQL query
+    String sql;
+    
+    RestaurantDatabase db = new RestaurantDatabase();
+    //Get Items and states
+    sql = "SELECT f.foodName, orderFood.state, f.foodId " +
+         "FROM `order` o " +
+         "JOIN `orderFood` ON o.orderId = `orderFood`.orderId " +
+         "JOIN food f ON `orderFood`.foodId = f.foodId " +
+         "WHERE o.currentState = 'pending' AND o.TableId = '" + table + "'"
+         + "ORDER BY o.orderdTime DESC;";
+
+    result = db.executeQuery(sql);
+    System.out.println(result);
+   
+    // Create a HashMap to map food id to image path
+    Map<Integer, String> foodIdToImagePath = new HashMap<>();
+    foodIdToImagePath.put(1, "/customer/saladIcon.png");
+    foodIdToImagePath.put(2, "/customer/burgerIcon.png");
+    foodIdToImagePath.put(3, "/customer/pizzaIcon.jpg");
+    foodIdToImagePath.put(4, "/customer/frenchFriesIcon.png");
+    foodIdToImagePath.put(5, "/customer/chickenWingsIcon.png");
+    
+    int itemPosX = 0;
+    int itemPosY = -100;
+    int count = 0;
+    
+
+    TrackFoodItemTemplate track = new TrackFoodItemTemplate();
+    for(Map<String, String> row : result){
+        
+        count = count + 1;
+        itemPosY = itemPosY + 100;
+        if (count == 4){
+            itemPosX = itemPosX + 500;
+            itemPosY = 0;
+         
+            
+        }
+        
+        String foodName = row.get("foodName");
+        String state = row.get("state");
+        int foodId = Integer.parseInt(row.get("foodId"));
+        String imagePath = foodIdToImagePath.get(foodId);
+        track.addTemplate(itemPosX, itemPosY, imagePath, foodName, state);
+    }
+    track.addBackroundImage();
+    
+        getContentPane().add(trackOrder);
+    trackOrder.setBounds(0, 0, 1070, 600);
+}
+
 
     // Decrease the given item quntity if the '+' button is clicked.
-    public static void decreaseValue(String key) {
+    public static void decreaseValue(int key) {
         if (foodItems.containsKey(key)) {
             int value = foodItems.get(key);
             foodItems.put(key, value - 1);
@@ -55,11 +213,11 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Reset all the stored data.
     public void resetAll(){
-                foodItems.put("salad", 0);
-        foodItems.put("burger", 0);
-        foodItems.put("pizza", 0);
-        foodItems.put("french fries", 0);
-        foodItems.put("chicken wings", 0);
+        foodItems.put(1, 0);
+        foodItems.put(2, 0);
+        foodItems.put(3, 0);
+        foodItems.put(4, 0);
+        foodItems.put(5, 0);
         
         txtQty.setText("0");
         txtQty1.setText("0");
@@ -555,6 +713,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnTrackOrder.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
         btnTrackOrder.setForeground(new java.awt.Color(249, 249, 249));
         btnTrackOrder.setText("TRACK ORDER");
+        btnTrackOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTrackOrderActionPerformed(evt);
+            }
+        });
         pickMenu.add(btnTrackOrder);
         btnTrackOrder.setBounds(600, 140, 330, 420);
 
@@ -809,47 +972,126 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnT7ActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-       String foodType = "salad";
+       int foodType = 1;
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
        txtQty.setText(""+ foodItems.get(foodType));
+       
+              totalPrice = totalPrice - 300;
+       txtTotPrice.setText("" + totalPrice);
         }
     }//GEN-LAST:event_btnRemoveActionPerformed
     // These are to handle the button click of adding or removing an item. 
     private void btnRemove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemove1ActionPerformed
-              String foodType = "burger";
+              int foodType = 2;
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
        txtQty1.setText(""+ foodItems.get(foodType));
+       
+              totalPrice = totalPrice - 500;
+       txtTotPrice.setText("" + totalPrice);
         }
     }//GEN-LAST:event_btnRemove1ActionPerformed
 
     private void btnRemove2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemove2ActionPerformed
-               String foodType = "pizza";
+               int foodType = 3;
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
+       
        txtQty2.setText(""+ foodItems.get(foodType));
+              totalPrice = totalPrice -1200;
+       txtTotPrice.setText("" + totalPrice);
         }
     }//GEN-LAST:event_btnRemove2ActionPerformed
 
     private void btnRemove4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemove4ActionPerformed
-              String foodType = "chicken wings";
+              int foodType = 4;
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
+              totalPrice = totalPrice - 800;
+       txtTotPrice.setText("" + totalPrice);
        txtQty4.setText(""+ foodItems.get(foodType));
         }
     }//GEN-LAST:event_btnRemove4ActionPerformed
 
     private void btnRemove5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemove5ActionPerformed
-               String foodType = "french fries";
+               int foodType = 5;
         if(foodItems.get(foodType) > 0){
        decreaseValue(foodType);
+              totalPrice = totalPrice - 400;
+       txtTotPrice.setText("" + totalPrice);
        txtQty5.setText(""+ foodItems.get(foodType));
         }
     }//GEN-LAST:event_btnRemove5ActionPerformed
 
     private void btnSendOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendOrderActionPerformed
-        // TODO add your handling code here:
+        
+                // Check if all values are 0
+        boolean allZero = foodItems.values().stream().allMatch(val -> val == 0);
+        
+        if(allZero == false){
+        
+        LocalDate currentDate = LocalDate.now();
+        LocalTime currentTime = LocalTime.now();
+        
+        //this is to store if there is an SQL output
+        List<Map<String, String>> result;
+        // This is to store the SQL query
+        String sql;
+        
+        RestaurantDatabase db = new RestaurantDatabase();
+        
+        // Randomly genarate a primary key (Not the most optimal methord, change if there are any time left)
+        Random rand = new Random();
+        int primaryKey = rand.nextInt(9000000);
+       
+        
+       
+        
+        // Store order data in order table
+        sql = "INSERT INTO `order` VALUES ('"+ primaryKey +"','" + table + "', '" + currentDate + "', '" + currentTime + "','"+inputTxtAdditionalInfo.getText()+"',Null, 'pending' )";
+        result = db.executeQuery(sql);
+
+        // orderd item will be stored in orderItem table.
+        for (HashMap.Entry<Integer, Integer> entry : foodItems.entrySet()) {
+            // If the value is greater than 0, perform an action
+            int qty = entry.getValue();
+            int foodId = entry.getKey();
+            if ( qty > 0) {
+                    sql = "INSERT INTO orderfood (quntity, orderId, foodId, state) VALUES ('"+ qty + "', '" + primaryKey + "', '" + foodId + "' ,'Pending')";
+                    result = db.executeQuery(sql);
+
+            }
+        }
+
+        // For debugging
+        sql = "SELECT * from `order`;";
+        result = db.executeQuery(sql);
+        System.out.println(result);
+        
+        sql = "SELECT * from orderFood;";
+        result = db.executeQuery(sql);
+        System.out.println(result);
+        
+        try {
+            db.getConnection().close();
+        } catch (Exception e) {
+            System.out.println("Error while closing the connection: " + e.getMessage());
+        }
+        
+        //Show a massage if the order is sucessfull and resets the window
+        
+        JOptionPane.showMessageDialog(null, "Oder is succesfully sent, Your order ID : " + primaryKey );
+        resetAll();
+        pickMenu.setVisible(false);
+        PlaceOrder.setVisible(false);        
+        PickSeat.setVisible(true);
+        
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Please enter your order."  );
+        }
+        
     }//GEN-LAST:event_btnSendOrderActionPerformed
     // To cancel the order
     private void btnCancelOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelOrderActionPerformed
@@ -927,6 +1169,8 @@ public class MainMenu extends javax.swing.JFrame {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
           pickMenu.setVisible(true);
           PlaceOrder.setVisible(false);
+          PickSeat.setVisible(false);
+          trackOrder.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
@@ -937,35 +1181,71 @@ public class MainMenu extends javax.swing.JFrame {
     // These are to handle the button click of adding or removing an item. 
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-      String foodType = "salad";
+      int foodType = 1;
         increaseValue(foodType);
        txtQty.setText(""+ foodItems.get(foodType));
+       
+       totalPrice = totalPrice + 300;
+       txtTotPrice.setText("" + totalPrice);
        
         
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
-      String foodType = "burger";
+      int foodType = 2;
         increaseValue(foodType);
+               totalPrice = totalPrice + 500;
+       txtTotPrice.setText("" + totalPrice);
        txtQty1.setText(""+ foodItems.get(foodType));    }//GEN-LAST:event_btnAdd1ActionPerformed
 
     private void btnAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd2ActionPerformed
-              String foodType = "pizza";
+              int foodType = 3;
         increaseValue(foodType);
+               totalPrice = totalPrice + 1200;
+       txtTotPrice.setText("" + totalPrice);
        txtQty2.setText(""+ foodItems.get(foodType));
     }//GEN-LAST:event_btnAdd2ActionPerformed
 
     private void btnAdd5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd5ActionPerformed
-              String foodType = "french fries";
+              int foodType = 4;
         increaseValue(foodType);
        txtQty5.setText(""+ foodItems.get(foodType));
+              totalPrice = totalPrice + 400;
+       txtTotPrice.setText("" + totalPrice);
     }//GEN-LAST:event_btnAdd5ActionPerformed
 
     private void btnAdd4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd4ActionPerformed
-              String foodType = "chicken wings";
+              int foodType = 5;
         increaseValue(foodType);
        txtQty4.setText(""+ foodItems.get(foodType));
+              totalPrice = totalPrice + 800;
+       txtTotPrice.setText("" + totalPrice);
     }//GEN-LAST:event_btnAdd4ActionPerformed
+
+    private void btnTrackOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrackOrderActionPerformed
+Container parent = null;
+try {
+    parent = trackOrder.getParent();
+} catch(Exception X) {
+    addTrackedItems();
+    PickSeat.setVisible(false);
+    pickMenu.setVisible(false);
+}
+
+if (parent != null) {
+    System.out.println("Panel Cleared");
+    parent.remove(trackOrder);
+    parent.revalidate();
+    parent.repaint();
+    trackOrder = null; // Ensure the panel won't be used again
+}
+
+addTrackedItems();
+PickSeat.setVisible(false);
+pickMenu.setVisible(false);
+
+
+    }//GEN-LAST:event_btnTrackOrderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1000,7 +1280,19 @@ public class MainMenu extends javax.swing.JFrame {
                 new MainMenu().setVisible(true);
             }
         });
+        
+        
+
+        
     }
+        private javax.swing.JLabel BackgroundImage3;
+    private javax.swing.JPanel itemTemplate;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel picsureOfFood;
+    private javax.swing.JPanel trackOrder;
+    private javax.swing.JLabel txtFoodName;
+    private javax.swing.JLabel txtState;
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdditionalInfo;
