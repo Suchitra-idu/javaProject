@@ -9,6 +9,7 @@ import java.util.*;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
+import java.util.Map;
 
 /**
  *
@@ -21,9 +22,12 @@ public class OrderDetails extends javax.swing.JFrame {
     /**
      * Creates new form OrderDetails
      */
+    
+    // Creates a table to save the order data.
     public OrderDetails() {
         initComponents();
         setupTable();
+        resetTable();
 
     }
         private void setupTable() {
@@ -40,9 +44,9 @@ public class OrderDetails extends javax.swing.JFrame {
 //        // Initialize the table
         Orders = new JTable(OrdersModel);
 //
-//        // Add the table to a JScrollPane and add it to your form
+//        // Add the table to a JScrollPane and add it to the form
         JScrollPane scrollPane = new JScrollPane(Orders);
-        scrollPane.setBounds(250, 100, 800, 350); // adjust these values as needed
+        scrollPane.setBounds(250, 100, 800, 350); 
         getContentPane().add(scrollPane);
     }
     RestaurantDatabase db = new RestaurantDatabase();
@@ -58,7 +62,8 @@ public class OrderDetails extends javax.swing.JFrame {
       "FROM `order` o " +
       "JOIN `orderFood` ON o.orderId = `orderFood`.orderId " +
       "JOIN food f ON `orderFood`.foodId = f.foodId " +
-      "WHERE o.currentState = 'pending';";
+      "WHERE o.currentState = 'pending'"
+          + "ORDER BY o.orderdTime DESC;";
 
     result = db.executeQuery(sql);
     System.out.println(result);
@@ -68,6 +73,8 @@ public class OrderDetails extends javax.swing.JFrame {
 //    } catch (Exception e) {
 //        System.out.println("Error while closing the connection: " + e.getMessage());
 //    }
+
+    // Data will be putten int the table by itarating the SQL result hashmap.
     for (Map<String, String> row : result) {
         OrdersModel.addRow(new Object[] {
             row.get("orderFoodId"),
@@ -84,14 +91,23 @@ public class OrderDetails extends javax.swing.JFrame {
     
     // Clear the combo box
 cmbOrderId.removeAllItems();
+cmbFullOrderID.removeAllItems();
 
 // Add each orderFoodId to the combo box
 for (Map<String, String> row : result) {
     cmbOrderId.addItem(row.get("orderFoodId"));
 }
+
+//To prevent duplications in combo box
+Set<String> items = new HashSet<>();
 for (Map<String, String> row : result) {
-    cmbFullOrderID.addItem(row.get("orderId"));
+    String orderId = row.get("orderId");
+    if (!items.contains(orderId)) {
+        cmbFullOrderID.addItem(orderId);
+        items.add(orderId);
+    }
 }
+
 
 }
 
@@ -360,6 +376,8 @@ for (Map<String, String> row : result) {
             }
             
         });
+        
+        
         
     }
 
