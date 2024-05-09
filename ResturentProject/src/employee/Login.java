@@ -40,53 +40,65 @@ public class Login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Email");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 80, -1, -1));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(670, 80, 36, 17);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Password");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 140, -1, -1));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(670, 140, 67, 17);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 0, 51));
         jLabel3.setText("Login");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(882, 14, -1, -1));
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(767, 76, 351, -1));
-        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(767, 138, 351, -1));
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(882, 14, 100, 44);
+        getContentPane().add(txtEmail);
+        txtEmail.setBounds(767, 76, 351, 22);
+        getContentPane().add(txtPassword);
+        txtPassword.setBounds(767, 138, 351, 22);
 
         btnLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/login.png"))); // NOI18N
         btnLogin.setText("Login");
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(767, 202, -1, -1));
+        getContentPane().add(btnLogin);
+        btnLogin.setBounds(767, 202, 92, 27);
 
         btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/exit.png"))); // NOI18N
         btnExit.setText("Exit");
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1028, 202, -1, 27));
+        getContentPane().add(btnExit);
+        btnExit.setBounds(1028, 202, 90, 27);
 
         btnClear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
         btnClear.setText("Clear");
-        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(898, 202, -1, -1));
+        getContentPane().add(btnClear);
+        btnClear.setBounds(898, 202, 89, 27);
 
         btnForgotpaa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnForgotpaa.setText("Forgot Password");
-        getContentPane().add(btnForgotpaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(767, 269, -1, -1));
+        getContentPane().add(btnForgotpaa);
+        btnForgotpaa.setBounds(767, 269, 148, 24);
 
         btnSignup.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSignup.setText("Signup");
-        getContentPane().add(btnSignup, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 269, -1, -1));
+        getContentPane().add(btnSignup);
+        btnSignup.setBounds(1040, 269, 78, 24);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ab.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, -50, 590, 580));
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(640, -50, 590, 580);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/k23.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 0, -1, -1));
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(0, 0, 781, 493);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
