@@ -5,6 +5,7 @@
 
 package customer;
 import database.RestaurantDatabase;
+import java.awt.Container;
 import java.util.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -142,6 +143,11 @@ public TrackFoodItemTemplate() {
     }
         
    public void addTrackedItems(){
+    if(trackOrder != null) {
+        getContentPane().remove(trackOrder);
+    }    getContentPane().repaint() ;  
+       
+    
     //this is to store if there is an SQL output
     List<Map<String, String>> result;
     // This is to store the SQL query
@@ -191,6 +197,9 @@ public TrackFoodItemTemplate() {
         track.addTemplate(itemPosX, itemPosY, imagePath, foodName, state);
     }
     track.addBackroundImage();
+    
+        getContentPane().add(trackOrder);
+    trackOrder.setBounds(0, 0, 1070, 600);
 }
 
 
@@ -1160,6 +1169,8 @@ public TrackFoodItemTemplate() {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
           pickMenu.setVisible(true);
           PlaceOrder.setVisible(false);
+          PickSeat.setVisible(false);
+          trackOrder.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
@@ -1212,10 +1223,28 @@ public TrackFoodItemTemplate() {
     }//GEN-LAST:event_btnAdd4ActionPerformed
 
     private void btnTrackOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrackOrderActionPerformed
-        addTrackedItems();
-        PickSeat.setVisible(false);
-        pickMenu.setVisible(false);
-        trackOrder.setVisible(true);
+Container parent = null;
+try {
+    parent = trackOrder.getParent();
+} catch(Exception X) {
+    addTrackedItems();
+    PickSeat.setVisible(false);
+    pickMenu.setVisible(false);
+}
+
+if (parent != null) {
+    System.out.println("Panel Cleared");
+    parent.remove(trackOrder);
+    parent.revalidate();
+    parent.repaint();
+    trackOrder = null; // Ensure the panel won't be used again
+}
+
+addTrackedItems();
+PickSeat.setVisible(false);
+pickMenu.setVisible(false);
+
+
     }//GEN-LAST:event_btnTrackOrderActionPerformed
 
     /**
