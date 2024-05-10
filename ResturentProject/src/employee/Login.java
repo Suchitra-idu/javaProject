@@ -40,17 +40,20 @@ public class Login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1230, 481));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1230, 481));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Email");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(670, 80, 36, 17);
+        jLabel1.setBounds(670, 80, 60, 17);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Password");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(670, 140, 67, 17);
+        jLabel2.setBounds(670, 140, 80, 17);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 0, 51));
@@ -58,37 +61,34 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(882, 14, 100, 44);
         getContentPane().add(txtEmail);
-        txtEmail.setBounds(767, 76, 351, 22);
+        txtEmail.setBounds(767, 76, 351, 26);
         getContentPane().add(txtPassword);
-        txtPassword.setBounds(767, 138, 351, 22);
+        txtPassword.setBounds(767, 138, 351, 26);
 
         btnLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/login.png"))); // NOI18N
         btnLogin.setText("Login");
         getContentPane().add(btnLogin);
-        btnLogin.setBounds(767, 202, 92, 27);
+        btnLogin.setBounds(767, 202, 76, 28);
 
         btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/exit.png"))); // NOI18N
         btnExit.setText("Exit");
         getContentPane().add(btnExit);
-        btnExit.setBounds(1028, 202, 90, 27);
+        btnExit.setBounds(1028, 202, 76, 27);
 
         btnClear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
         btnClear.setText("Clear");
         getContentPane().add(btnClear);
-        btnClear.setBounds(898, 202, 89, 27);
+        btnClear.setBounds(898, 202, 76, 28);
 
         btnForgotpaa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnForgotpaa.setText("Forgot Password");
         getContentPane().add(btnForgotpaa);
-        btnForgotpaa.setBounds(767, 269, 148, 24);
+        btnForgotpaa.setBounds(767, 269, 160, 28);
 
         btnSignup.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSignup.setText("Signup");
         getContentPane().add(btnSignup);
-        btnSignup.setBounds(1040, 269, 78, 24);
+        btnSignup.setBounds(1040, 269, 90, 28);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ab.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -98,7 +98,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/k23.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 781, 493);
+        jLabel5.setBounds(0, 0, 640, 493);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
