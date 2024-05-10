@@ -68,21 +68,21 @@ public TrackFoodItemTemplate() {
         trackOrder = new javax.swing.JPanel();
         BackgroundImage3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel(); // Initialize jLabel2 here
-
+        btnBack3 = new javax.swing.JButton(); 
         trackOrder.setLayout(null);
 
 
-        btnBack.setBackground(new java.awt.Color(216, 81, 81));
-        btnBack.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack.setText("BACK");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
+        btnBack3.setBackground(new java.awt.Color(216, 81, 81));
+        btnBack3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        btnBack3.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack3.setText("BACK");
+        btnBack3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBack1ActionPerformed(evt);
             }
         });
-        trackOrder.add(btnBack);
-        btnBack.setBounds(20, 20, 100, 40);
+        trackOrder.add(btnBack3);
+        btnBack3.setBounds(20, 20, 100, 40);
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("TRACK ORDER");
@@ -1172,7 +1172,12 @@ public TrackFoodItemTemplate() {
           PickSeat.setVisible(false);
           trackOrder.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
-
+    private void btnBack3ActionPerformed(java.awt.event.ActionEvent evt) {                                        
+          pickMenu.setVisible(true);
+          PlaceOrder.setVisible(false);
+          PickSeat.setVisible(false);
+          trackOrder.setVisible(false);
+    }
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
           pickMenu.setVisible(false);
           PlaceOrder.setVisible(false);
@@ -1292,7 +1297,7 @@ pickMenu.setVisible(false);
     private javax.swing.JPanel trackOrder;
     private javax.swing.JLabel txtFoodName;
     private javax.swing.JLabel txtState;
-
+    private javax.swing.JButton btnBack3;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdditionalInfo;

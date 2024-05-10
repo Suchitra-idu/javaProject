@@ -3,6 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package employee;
+import database.RestaurantDatabase;
+import employee.OrderDetails;
+import java.util.List;
+import java.util.Map;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -32,25 +38,26 @@ public class Login extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
-        btnClear = new javax.swing.JButton();
         btnForgotpaa = new javax.swing.JButton();
         btnSignup = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1230, 481));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1230, 481));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Email");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(670, 80, 36, 17);
+        jLabel1.setBounds(670, 80, 60, 17);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Password");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(670, 140, 67, 17);
+        jLabel2.setBounds(670, 140, 80, 17);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 0, 51));
@@ -58,37 +65,29 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(882, 14, 100, 44);
         getContentPane().add(txtEmail);
-        txtEmail.setBounds(767, 76, 351, 22);
+        txtEmail.setBounds(767, 76, 351, 26);
         getContentPane().add(txtPassword);
-        txtPassword.setBounds(767, 138, 351, 22);
+        txtPassword.setBounds(767, 138, 351, 26);
 
         btnLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/login.png"))); // NOI18N
         btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnLogin);
-        btnLogin.setBounds(767, 202, 92, 27);
-
-        btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/exit.png"))); // NOI18N
-        btnExit.setText("Exit");
-        getContentPane().add(btnExit);
-        btnExit.setBounds(1028, 202, 90, 27);
-
-        btnClear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
-        btnClear.setText("Clear");
-        getContentPane().add(btnClear);
-        btnClear.setBounds(898, 202, 89, 27);
+        btnLogin.setBounds(767, 202, 340, 28);
 
         btnForgotpaa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnForgotpaa.setText("Forgot Password");
         getContentPane().add(btnForgotpaa);
-        btnForgotpaa.setBounds(767, 269, 148, 24);
+        btnForgotpaa.setBounds(770, 240, 160, 28);
 
         btnSignup.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSignup.setText("Signup");
         getContentPane().add(btnSignup);
-        btnSignup.setBounds(1040, 269, 78, 24);
+        btnSignup.setBounds(960, 240, 150, 28);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ab.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -98,10 +97,53 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/k23.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 781, 493);
+        jLabel5.setBounds(0, 0, 640, 493);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+ RestaurantDatabase db = new RestaurantDatabase();
+ 
+ 
+    
+    List<Map<String, String>> result;
+    String sql;      
+            
+    String inpEmail = txtEmail.getText();
+    String inpPassword = txtPassword.getText();
+
+      
+    sql = "SELECT name, empID, role, password FROM employee WHERE email ='" + inpEmail + "'";
+
+    result = db.executeQuery(sql);
+
+    if (!result.isEmpty()) {
+        Map<String, String> userData = result.get(0);
+        String dbPassword = userData.get("password");
+        String dbrole = userData.get("role");
+
+        if (inpPassword.equals(dbPassword)) {
+            System.out.println("Login successful!");
+            
+            OrderDetails.main(new String[]{});
+
+            dispose();
+            
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Incorrect password. Please try again.", "Login Error", JOptionPane.ERROR_MESSAGE);
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Email not found. Please try again.", "Login Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    try {
+        db.getConnection().close();
+    } catch (Exception e) {
+        System.out.println("Error while closing the connection: " + e.getMessage());
+    }
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,8 +181,6 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClear;
-    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnForgotpaa;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnSignup;
