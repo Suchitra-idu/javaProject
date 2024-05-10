@@ -26,18 +26,161 @@ public class LoginPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
+        btnSignup = new javax.swing.JButton();
+        btnForgotPw = new javax.swing.JButton();
+        txtPassword = new javax.swing.JPasswordField();
+        txtEmail = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txtemail = new javax.swing.JTextField();
+        txtRole = new javax.swing.JTextField();
+        txtmobileno = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        txtname = new javax.swing.JTextField();
+        txteid = new javax.swing.JTextField();
+        txtemployeekey = new javax.swing.JTextField();
+        txtPassWord = new javax.swing.JPasswordField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel1.setText("Login");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(290, 20, 100, 44);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Email");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(20, 80, 36, 17);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Password");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(20, 130, 67, 17);
+
+        btnLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/login.png"))); // NOI18N
+        btnLogin.setText("Login");
+        getContentPane().add(btnLogin);
+        btnLogin.setBounds(170, 190, 92, 27);
+
+        btnClear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
+        btnClear.setText("Clear");
+        getContentPane().add(btnClear);
+        btnClear.setBounds(300, 190, 89, 27);
+
+        btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/exit.png"))); // NOI18N
+        btnExit.setText("Exit");
+        getContentPane().add(btnExit);
+        btnExit.setBounds(420, 190, 90, 30);
+
+        btnSignup.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSignup.setText("Signup");
+        getContentPane().add(btnSignup);
+        btnSignup.setBounds(460, 250, 78, 24);
+
+        btnForgotPw.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnForgotPw.setText("Forgot Password ?");
+        getContentPane().add(btnForgotPw);
+        btnForgotPw.setBounds(160, 250, 160, 24);
+
+        txtPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(txtPassword);
+        txtPassword.setBounds(170, 130, 350, 23);
+
+        txtEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(txtEmail);
+        txtEmail.setBounds(170, 80, 351, 23);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel4.setText("Signup");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("Employee ID");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setText("Name");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("Mobile No");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setText("Email");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setText("Password");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setText("Employee Key");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setText("Role");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, -1));
+
+        txtemail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel1.add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 210, -1));
+
+        txtRole.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel1.add(txtRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 210, -1));
+
+        txtmobileno.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel1.add(txtmobileno, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 210, -1));
+
+        jTextField5.setText("jTextField5");
+        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 471, -1, -1));
+
+        txtname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel1.add(txtname, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 210, -1));
+
+        txteid.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel1.add(txteid, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 210, -1));
+
+        txtemployeekey.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel1.add(txtemployeekey, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 210, -1));
+
+        txtPassWord.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel1.add(txtPassWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 210, -1));
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(730, 60, 500, 320);
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ab.jpg"))); // NOI18N
+        jLabel12.setText("jLabel12");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(0, 0, 600, 470);
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/k23.jpg"))); // NOI18N
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(590, 0, 1130, 470);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +221,34 @@ public class LoginPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnForgotPw;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnSignup;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JPasswordField txtPassWord;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtRole;
+    private javax.swing.JTextField txteid;
+    private javax.swing.JTextField txtemail;
+    private javax.swing.JTextField txtemployeekey;
+    private javax.swing.JTextField txtmobileno;
+    private javax.swing.JTextField txtname;
     // End of variables declaration//GEN-END:variables
 }
