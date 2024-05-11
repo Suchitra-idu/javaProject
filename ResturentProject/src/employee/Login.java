@@ -21,6 +21,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        signUpMenu.setVisible(false);
     }
 
     /**
@@ -32,6 +33,25 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        signUpMenu = new javax.swing.JPanel();
+        sinUp = new javax.swing.JLabel();
+        tmpID = new javax.swing.JLabel();
+        Name = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        txtsighnUpemail = new javax.swing.JTextField();
+        txtmobileno = new javax.swing.JTextField();
+        txtname = new javax.swing.JTextField();
+        txtEmpID = new javax.swing.JTextField();
+        txtSignUpPassword = new javax.swing.JPasswordField();
+        roleCombo = new javax.swing.JComboBox<>();
+        btnsignUp = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        txtEmpKey = new javax.swing.JPasswordField();
+        backgroundImg = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -49,45 +69,152 @@ public class Login extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1230, 481));
         getContentPane().setLayout(null);
 
+        signUpMenu.setBackground(new java.awt.Color(255, 255, 255));
+        signUpMenu.setLayout(null);
+
+        sinUp.setBackground(new java.awt.Color(0, 0, 0));
+        sinUp.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        sinUp.setForeground(new java.awt.Color(0, 0, 0));
+        sinUp.setText("SIGN UP");
+        signUpMenu.add(sinUp);
+        sinUp.setBounds(200, 20, 157, 44);
+
+        tmpID.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tmpID.setText("Employee ID");
+        signUpMenu.add(tmpID);
+        tmpID.setBounds(120, 100, 100, 17);
+
+        Name.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Name.setText("Name");
+        signUpMenu.add(Name);
+        Name.setBounds(120, 130, 90, 17);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setText("Mobile No");
+        signUpMenu.add(jLabel9);
+        jLabel9.setBounds(120, 160, 90, 17);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setText("Email");
+        signUpMenu.add(jLabel10);
+        jLabel10.setBounds(120, 190, 80, 17);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setText("Password");
+        signUpMenu.add(jLabel11);
+        jLabel11.setBounds(120, 220, 110, 17);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setText("Employee Key");
+        signUpMenu.add(jLabel12);
+        jLabel12.setBounds(120, 250, 110, 17);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel13.setText("Role");
+        signUpMenu.add(jLabel13);
+        jLabel13.setBounds(120, 280, 60, 17);
+
+        txtsighnUpemail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        signUpMenu.add(txtsighnUpemail);
+        txtsighnUpemail.setBounds(260, 180, 210, 27);
+
+        txtmobileno.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        signUpMenu.add(txtmobileno);
+        txtmobileno.setBounds(260, 150, 210, 27);
+
+        txtname.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        signUpMenu.add(txtname);
+        txtname.setBounds(260, 120, 210, 27);
+
+        txtEmpID.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        signUpMenu.add(txtEmpID);
+        txtEmpID.setBounds(260, 90, 210, 27);
+
+        txtSignUpPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        signUpMenu.add(txtSignUpPassword);
+        txtSignUpPassword.setBounds(260, 210, 210, 27);
+
+        roleCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cook", "waiter", "manager", "admin" }));
+        signUpMenu.add(roleCombo);
+        roleCombo.setBounds(260, 270, 210, 26);
+
+        btnsignUp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnsignUp.setText("SIGN UP");
+        btnsignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsignUpActionPerformed(evt);
+            }
+        });
+        signUpMenu.add(btnsignUp);
+        btnsignUp.setBounds(120, 320, 350, 28);
+
+        btnBack.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 0, 0));
+        btnBack.setText("BACK");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        signUpMenu.add(btnBack);
+        btnBack.setBounds(120, 350, 80, 30);
+
+        txtEmpKey.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        signUpMenu.add(txtEmpKey);
+        txtEmpKey.setBounds(260, 240, 210, 27);
+
+        backgroundImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ab.jpg"))); // NOI18N
+        backgroundImg.setText("jLabel6");
+        signUpMenu.add(backgroundImg);
+        backgroundImg.setBounds(0, 0, 590, 480);
+
+        getContentPane().add(signUpMenu);
+        signUpMenu.setBounds(640, 0, 590, 480);
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Email");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(670, 80, 60, 17);
+        jLabel1.setBounds(690, 80, 60, 17);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Password");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(670, 140, 80, 17);
+        jLabel2.setBounds(690, 140, 80, 17);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 0, 51));
-        jLabel3.setText("Login");
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("LOGIN");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(882, 14, 100, 44);
+        jLabel3.setBounds(882, 14, 150, 44);
         getContentPane().add(txtEmail);
-        txtEmail.setBounds(767, 76, 351, 26);
+        txtEmail.setBounds(790, 80, 351, 26);
         getContentPane().add(txtPassword);
-        txtPassword.setBounds(767, 138, 351, 26);
+        txtPassword.setBounds(790, 140, 351, 26);
 
         btnLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnLogin.setText("Login");
+        btnLogin.setText("LOGIN");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
             }
         });
         getContentPane().add(btnLogin);
-        btnLogin.setBounds(767, 202, 340, 28);
+        btnLogin.setBounds(790, 190, 350, 28);
 
         btnForgotpaa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnForgotpaa.setText("Forgot Password");
         getContentPane().add(btnForgotpaa);
-        btnForgotpaa.setBounds(770, 240, 160, 28);
+        btnForgotpaa.setBounds(790, 220, 160, 28);
 
         btnSignup.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSignup.setText("Signup");
+        btnSignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignupActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnSignup);
-        btnSignup.setBounds(960, 240, 150, 28);
+        btnSignup.setBounds(990, 220, 150, 28);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ab.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -145,6 +272,40 @@ public class Login extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void btnsignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsignUpActionPerformed
+       RestaurantDatabase db = new RestaurantDatabase();
+    List<Map<String, String>> result;
+    String sql;      
+        
+    String inpEmail = txtsighnUpemail.getText();
+    String inpPassword = txtSignUpPassword.getText();
+    String empID = txtEmpID.getText();
+    String empKey = new String(txtSignUpPassword.getPassword());
+    String mobileNo = txtmobileno.getText();
+    String name = txtname.getText();
+    String role = roleCombo.getSelectedItem().toString();
+
+    sql = "INSERT INTO employee (empID, name, email, password, phoneNumber, empKey, role)" +
+    "VALUES ('" + empID + "', '" + name + "', '" + inpEmail + "', '" + inpPassword + "', '" + mobileNo + "', '" + empKey + "', '" + role + "');";
+
+    result = db.executeQuery(sql);
+
+    try {
+        db.getConnection().close();
+    } catch (Exception e) {
+        System.out.println("Error while closing the connection: " + e.getMessage());
+    }
+         
+    }//GEN-LAST:event_btnsignUpActionPerformed
+
+    private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
+       signUpMenu.setVisible(true);
+    }//GEN-LAST:event_btnSignupActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+signUpMenu.setVisible(false);
+    }//GEN-LAST:event_btnBackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -181,15 +342,34 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Name;
+    private javax.swing.JLabel backgroundImg;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnForgotpaa;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnSignup;
+    private javax.swing.JButton btnsignUp;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JComboBox<String> roleCombo;
+    private javax.swing.JPanel signUpMenu;
+    private javax.swing.JLabel sinUp;
+    private javax.swing.JLabel tmpID;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEmpID;
+    private javax.swing.JPasswordField txtEmpKey;
     private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JPasswordField txtSignUpPassword;
+    private javax.swing.JTextField txtmobileno;
+    private javax.swing.JTextField txtname;
+    private javax.swing.JTextField txtsighnUpemail;
     // End of variables declaration//GEN-END:variables
 }

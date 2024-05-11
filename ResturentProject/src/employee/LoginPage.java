@@ -68,48 +68,48 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Email");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 80, 36, 17);
+        jLabel2.setBounds(20, 80, 39, 17);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Password");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 130, 67, 17);
+        jLabel3.setBounds(20, 130, 70, 17);
 
         btnLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/login.png"))); // NOI18N
         btnLogin.setText("Login");
         getContentPane().add(btnLogin);
-        btnLogin.setBounds(170, 190, 92, 27);
+        btnLogin.setBounds(170, 190, 76, 28);
 
         btnClear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
         btnClear.setText("Clear");
         getContentPane().add(btnClear);
-        btnClear.setBounds(300, 190, 89, 27);
+        btnClear.setBounds(300, 190, 76, 28);
 
         btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/exit.png"))); // NOI18N
         btnExit.setText("Exit");
         getContentPane().add(btnExit);
-        btnExit.setBounds(420, 190, 90, 30);
+        btnExit.setBounds(420, 190, 76, 30);
 
         btnSignup.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSignup.setText("Signup");
         getContentPane().add(btnSignup);
-        btnSignup.setBounds(460, 250, 78, 24);
+        btnSignup.setBounds(460, 250, 84, 28);
 
         btnForgotPw.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnForgotPw.setText("Forgot Password ?");
         getContentPane().add(btnForgotPw);
-        btnForgotPw.setBounds(160, 250, 160, 24);
+        btnForgotPw.setBounds(160, 250, 166, 28);
 
         txtPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(txtPassword);
-        txtPassword.setBounds(170, 130, 350, 23);
+        txtPassword.setBounds(170, 130, 350, 27);
 
         txtEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(txtEmail);
-        txtEmail.setBounds(170, 80, 351, 23);
+        txtEmail.setBounds(170, 80, 351, 27);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -171,7 +171,7 @@ public class LoginPage extends javax.swing.JFrame {
         jPanel1.add(txtPassWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 210, -1));
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(730, 60, 500, 320);
+        jPanel1.setBounds(650, 60, 500, 320);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ab.jpg"))); // NOI18N
         jLabel12.setText("jLabel12");
