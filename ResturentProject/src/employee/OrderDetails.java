@@ -46,8 +46,8 @@ public class OrderDetails extends javax.swing.JFrame {
 //
 //        // Add the table to a JScrollPane and add it to the form
         JScrollPane scrollPane = new JScrollPane(Orders);
-        scrollPane.setBounds(250, 100, 800, 350); 
-        getContentPane().add(scrollPane);
+        scrollPane.setBounds(10, 100, 800, 350); 
+        orderMenu.add(scrollPane);
     }
     RestaurantDatabase db = new RestaurantDatabase();
  public void getSQL() {
@@ -127,23 +127,23 @@ for (Map<String, String> row : result) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        sideBar = new javax.swing.JPanel();
+        orderMenu = new javax.swing.JPanel();
         cmbOrderId = new javax.swing.JComboBox<>();
-        btnPackaging = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btnFinish1 = new javax.swing.JButton();
-        btnTakeOrder = new javax.swing.JButton();
-        btnPreppingOrder1 = new javax.swing.JButton();
-        btnCookingOrder1 = new javax.swing.JButton();
         cmbFullOrderID = new javax.swing.JComboBox<>();
-        btnCancelOrder = new javax.swing.JButton();
-        btnFinishOrder = new javax.swing.JButton();
+        cmbItemStates = new javax.swing.JComboBox<>();
+        cmbOrderStates = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1100, 600));
+        setPreferredSize(new java.awt.Dimension(1100, 700));
         setResizable(false);
         getContentPane().setLayout(null);
+        getContentPane().add(sideBar);
+        sideBar.setBounds(0, 0, 240, 640);
+
+        orderMenu.setLayout(null);
 
         cmbOrderId.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         cmbOrderId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item ID" }));
@@ -152,28 +152,8 @@ for (Map<String, String> row : result) {
                 cmbOrderIdActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbOrderId);
-        cmbOrderId.setBounds(20, 20, 200, 40);
-
-        btnPackaging.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnPackaging.setText("PACKAGING");
-        btnPackaging.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPackagingActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnPackaging);
-        btnPackaging.setBounds(30, 340, 175, 40);
-
-        btnCancel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnCancel.setText("CANCEL ITEM");
-        btnCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnCancel);
-        btnCancel.setBounds(30, 500, 179, 40);
+        orderMenu.add(cmbOrderId);
+        cmbOrderId.setBounds(60, 510, 200, 40);
 
         btnReset.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         btnReset.setText("RESET");
@@ -182,54 +162,14 @@ for (Map<String, String> row : result) {
                 btnResetActionPerformed(evt);
             }
         });
-        getContentPane().add(btnReset);
-        btnReset.setBounds(870, 30, 175, 40);
+        orderMenu.add(btnReset);
+        btnReset.setBounds(640, 40, 175, 40);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ORDER");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(230, 10, 130, 59);
-
-        btnFinish1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnFinish1.setText("SERVE");
-        btnFinish1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFinish1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnFinish1);
-        btnFinish1.setBounds(30, 420, 175, 40);
-
-        btnTakeOrder.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnTakeOrder.setText("ACCEPT ITEM");
-        btnTakeOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTakeOrderActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnTakeOrder);
-        btnTakeOrder.setBounds(30, 100, 175, 40);
-
-        btnPreppingOrder1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnPreppingOrder1.setText("PREPARING ");
-        btnPreppingOrder1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPreppingOrder1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnPreppingOrder1);
-        btnPreppingOrder1.setBounds(30, 180, 175, 40);
-
-        btnCookingOrder1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnCookingOrder1.setText("COOKING");
-        btnCookingOrder1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCookingOrder1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnCookingOrder1);
-        btnCookingOrder1.setBounds(30, 260, 175, 40);
+        orderMenu.add(jLabel1);
+        jLabel1.setBounds(20, 20, 130, 59);
 
         cmbFullOrderID.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         cmbFullOrderID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Order ID" }));
@@ -238,39 +178,34 @@ for (Map<String, String> row : result) {
                 cmbFullOrderIDActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbFullOrderID);
-        cmbFullOrderID.setBounds(260, 500, 200, 40);
+        orderMenu.add(cmbFullOrderID);
+        cmbFullOrderID.setBounds(60, 570, 200, 40);
 
-        btnCancelOrder.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnCancelOrder.setText("CANCEL ORDER");
-        btnCancelOrder.addActionListener(new java.awt.event.ActionListener() {
+        cmbItemStates.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        cmbItemStates.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pending", "Accepted", "Preparing", "Cooking", "Packaging", "Serving", "Cancelled", " " }));
+        cmbItemStates.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelOrderActionPerformed(evt);
+                cmbItemStatesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelOrder);
-        btnCancelOrder.setBounds(780, 500, 240, 40);
+        orderMenu.add(cmbItemStates);
+        cmbItemStates.setBounds(300, 510, 510, 40);
 
-        btnFinishOrder.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnFinishOrder.setText("FINISH ORDER");
-        btnFinishOrder.addActionListener(new java.awt.event.ActionListener() {
+        cmbOrderStates.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        cmbOrderStates.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pending", "Finish order", "Cancel order" }));
+        cmbOrderStates.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFinishOrderActionPerformed(evt);
+                cmbOrderStatesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnFinishOrder);
-        btnFinishOrder.setBounds(500, 500, 240, 40);
+        orderMenu.add(cmbOrderStates);
+        cmbOrderStates.setBounds(300, 570, 510, 40);
+
+        getContentPane().add(orderMenu);
+        orderMenu.setBounds(240, 0, 840, 640);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnPackagingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPackagingActionPerformed
-        String selectedOrderFoodId = (String) cmbOrderId.getSelectedItem();
-        String sql = "UPDATE orderFood SET state = 'Packaging' WHERE orderFoodId = "+selectedOrderFoodId+"";     
-        db.executeQuery(sql);
-        
-        resetTable();
-    }//GEN-LAST:event_btnPackagingActionPerformed
 
     private void cmbOrderIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrderIdActionPerformed
         // TODO add your handling code here:
@@ -280,67 +215,28 @@ for (Map<String, String> row : result) {
         resetTable();
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void btnTakeOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTakeOrderActionPerformed
-        String selectedOrderFoodId = (String) cmbOrderId.getSelectedItem();
-        String sql = "UPDATE orderFood SET state = 'Order Taken' WHERE orderFoodId = "+selectedOrderFoodId+"";     
-        db.executeQuery(sql);
-        
-        resetTable();
-        
-    }//GEN-LAST:event_btnTakeOrderActionPerformed
-
-    private void btnPreppingOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreppingOrder1ActionPerformed
-        String selectedOrderFoodId = (String) cmbOrderId.getSelectedItem();
-        String sql = "UPDATE orderFood SET state = 'Preparring' WHERE orderFoodId = "+selectedOrderFoodId+"";     
-        db.executeQuery(sql);
-        
-        resetTable();
-    }//GEN-LAST:event_btnPreppingOrder1ActionPerformed
-
-    private void btnCookingOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCookingOrder1ActionPerformed
-        String selectedOrderFoodId = (String) cmbOrderId.getSelectedItem();
-        String sql = "UPDATE orderFood SET state = 'Cooking' WHERE orderFoodId = "+selectedOrderFoodId+"";     
-        db.executeQuery(sql);
-        
-        resetTable();
-    }//GEN-LAST:event_btnCookingOrder1ActionPerformed
-
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        String selectedOrderFoodId = (String) cmbOrderId.getSelectedItem();
-        String sql = "UPDATE orderFood SET state = 'Cancelled' WHERE orderFoodId = "+selectedOrderFoodId+"";     
-        db.executeQuery(sql);
-        
-        resetTable();
-    }//GEN-LAST:event_btnCancelActionPerformed
-
-    private void btnFinish1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinish1ActionPerformed
-        String selectedOrderFoodId = (String) cmbOrderId.getSelectedItem();
-        String sql = "UPDATE orderFood SET state = 'Serving' WHERE orderFoodId = "+selectedOrderFoodId+"";     
-        db.executeQuery(sql);
-        
-        resetTable();
-    }//GEN-LAST:event_btnFinish1ActionPerformed
-
     private void cmbFullOrderIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFullOrderIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbFullOrderIDActionPerformed
 
-    private void btnCancelOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelOrderActionPerformed
-         String selectedOrderFoodId = (String) cmbFullOrderID.getSelectedItem();
-        String sql = "UPDATE `order` SET currentState = 'Order Finished' WHERE orderId = "+selectedOrderFoodId+"";
-   
+    private void cmbItemStatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbItemStatesActionPerformed
+        String selectedOrderFoodId = (String) cmbOrderId.getSelectedItem();
+        String state = (String)cmbItemStates.getSelectedItem();
+        String sql = "UPDATE orderFood SET state = '"+state+"' WHERE orderFoodId = "+selectedOrderFoodId+"";     
         db.executeQuery(sql);
         
-        resetTable();    }//GEN-LAST:event_btnCancelOrderActionPerformed
+        resetTable();
+    }//GEN-LAST:event_cmbItemStatesActionPerformed
 
-    private void btnFinishOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishOrderActionPerformed
-         String selectedOrderFoodId = (String) cmbFullOrderID.getSelectedItem();
-        String sql = "UPDATE `order` SET currentState = 'Order Finished' WHERE orderId = "+selectedOrderFoodId+"";
+    private void cmbOrderStatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrderStatesActionPerformed
+                String selectedOrderFoodId = (String) cmbFullOrderID.getSelectedItem();
+        String state = (String)cmbOrderStates.getSelectedItem();
+        String sql = "UPDATE `order` SET currentState = '"+state+"' WHERE orderId = "+selectedOrderFoodId+"";
      
         db.executeQuery(sql);
         
         resetTable();
-    }//GEN-LAST:event_btnFinishOrderActionPerformed
+    }//GEN-LAST:event_cmbOrderStatesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -382,17 +278,13 @@ for (Map<String, String> row : result) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnCancelOrder;
-    private javax.swing.JButton btnCookingOrder1;
-    private javax.swing.JButton btnFinish1;
-    private javax.swing.JButton btnFinishOrder;
-    private javax.swing.JButton btnPackaging;
-    private javax.swing.JButton btnPreppingOrder1;
     private javax.swing.JButton btnReset;
-    private javax.swing.JButton btnTakeOrder;
     private javax.swing.JComboBox<String> cmbFullOrderID;
+    private javax.swing.JComboBox<String> cmbItemStates;
     private javax.swing.JComboBox<String> cmbOrderId;
+    private javax.swing.JComboBox<String> cmbOrderStates;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel orderMenu;
+    private javax.swing.JPanel sideBar;
     // End of variables declaration//GEN-END:variables
 }
