@@ -128,6 +128,7 @@ for (Map<String, String> row : result) {
     private void initComponents() {
 
         sideBar = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         orderMenu = new javax.swing.JPanel();
         cmbOrderId = new javax.swing.JComboBox<>();
         btnReset = new javax.swing.JButton();
@@ -140,6 +141,14 @@ for (Map<String, String> row : result) {
         setPreferredSize(new java.awt.Dimension(1100, 700));
         setResizable(false);
         getContentPane().setLayout(null);
+
+        sideBar.setLayout(null);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo (Custom).png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        sideBar.add(jLabel3);
+        jLabel3.setBounds(10, -30, 190, 210);
+
         getContentPane().add(sideBar);
         sideBar.setBounds(0, 0, 240, 640);
 
@@ -284,6 +293,7 @@ for (Map<String, String> row : result) {
     private javax.swing.JComboBox<String> cmbOrderId;
     private javax.swing.JComboBox<String> cmbOrderStates;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel orderMenu;
     private javax.swing.JPanel sideBar;
     // End of variables declaration//GEN-END:variables
