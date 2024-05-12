@@ -10,6 +10,10 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 import java.util.Map;
+import java.awt.Color;
+import javax.swing.table.JTableHeader;
+import javax.swing.*;
+
 
 /**
  *
@@ -24,31 +28,54 @@ public class OrderDetails extends javax.swing.JFrame {
      */
     
     // Creates a table to save the order data.
-    public OrderDetails() {
-        initComponents();
-        setupTable();
-        resetTable();
+ public OrderDetails() {
+    initComponents();
+    setupTable();
+    //resetTable();
+}
+private void setupTable() {
+    // Initialize the table model
+    DefaultTableModel OrdersModel = new DefaultTableModel(
+        new Object [][] {
+            {null,null, null, null, null, null, null, null}
+        },
+        new String [] {
+            "Orderd item ID","Order ID", "Table ID", "Item", "Quantity", "Extra", "Orderd time", "Item state"
+        }
+    ) {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            // This will make the cells uneditable
+            return false;
+        }
+    };
 
-    }
-        private void setupTable() {
-        // Initialize the table model
-        OrdersModel = new DefaultTableModel(
-            new Object [][] {
-                {null,null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Orderd item ID","Order ID", "Table ID", "Item", "Quantity", "Extra", "Orderd time", "Item state"
-            }
-        );
+    // Initialize the table
+    JTable Orders = new JTable(OrdersModel);
 
-//        // Initialize the table
-        Orders = new JTable(OrdersModel);
-//
-//        // Add the table to a JScrollPane and add it to the form
-        JScrollPane scrollPane = new JScrollPane(Orders);
-        scrollPane.setBounds(10, 100, 800, 350); 
-        orderMenu.add(scrollPane);
-    }
+    // Change the color of the table
+    Orders.setBackground(new Color(255, 255, 255)); // This changes the background color to a custom RGB color
+    Orders.setForeground(Color.BLACK); // This changes the text color
+
+    // Change the color of the table header
+    JTableHeader header = Orders.getTableHeader();
+    header.setBackground(new Color(255, 255, 255)); // This changes the background color of the header to a custom RGB color
+    header.setForeground(Color.BLACK); // This changes the text color of the header
+
+    // Remove the border of the table header
+    header.setBorder(BorderFactory.createEmptyBorder());
+
+    // Remove cell borders
+    Orders.setShowGrid(false);
+
+    // Add the table to a JScrollPane and add it to the form
+    JScrollPane scrollPane = new JScrollPane(Orders);
+    scrollPane.setBounds(10, 100, 800, 350); 
+    orderMenu.add(scrollPane);
+    
+    // Refresh the GUI to apply the changes
+    SwingUtilities.updateComponentTreeUI(this);
+}
     RestaurantDatabase db = new RestaurantDatabase();
  public void getSQL() {
     List<Map<String, String>> result;
@@ -128,7 +155,7 @@ for (Map<String, String> row : result) {
     private void initComponents() {
 
         sideBar = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         orderMenu = new javax.swing.JPanel();
         cmbOrderId = new javax.swing.JComboBox<>();
         btnReset = new javax.swing.JButton();
@@ -138,24 +165,39 @@ for (Map<String, String> row : result) {
         cmbOrderStates = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1100, 700));
+        setPreferredSize(new java.awt.Dimension(1100, 680));
         setResizable(false);
         getContentPane().setLayout(null);
 
+        sideBar.setBackground(new java.awt.Color(241, 242, 247));
+        sideBar.setForeground(new java.awt.Color(241, 242, 247));
         sideBar.setLayout(null);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo (Custom).png"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        sideBar.add(jLabel3);
-        jLabel3.setBounds(10, -30, 190, 210);
+        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jButton1.setText("Dashboard");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        sideBar.add(jButton1);
+        jButton1.setBounds(30, 110, 190, 40);
 
         getContentPane().add(sideBar);
-        sideBar.setBounds(0, 0, 240, 640);
+        sideBar.setBounds(-10, -10, 250, 670);
 
+        orderMenu.setBackground(new java.awt.Color(255, 255, 255));
+        orderMenu.setForeground(new java.awt.Color(255, 255, 255));
         orderMenu.setLayout(null);
 
+        cmbOrderId.setBackground(new java.awt.Color(241, 242, 247));
         cmbOrderId.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        cmbOrderId.setForeground(new java.awt.Color(0, 0, 0));
         cmbOrderId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item ID" }));
+        cmbOrderId.setBorder(null);
+        cmbOrderId.setFocusable(false);
+        cmbOrderId.setRequestFocusEnabled(false);
         cmbOrderId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbOrderIdActionPerformed(evt);
@@ -175,13 +217,19 @@ for (Map<String, String> row : result) {
         btnReset.setBounds(640, 40, 175, 40);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ORDER");
+        jLabel1.setText("Orders");
         orderMenu.add(jLabel1);
         jLabel1.setBounds(20, 20, 130, 59);
 
+        cmbFullOrderID.setBackground(new java.awt.Color(241, 242, 247));
         cmbFullOrderID.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        cmbFullOrderID.setForeground(new java.awt.Color(0, 0, 0));
         cmbFullOrderID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Order ID" }));
+        cmbFullOrderID.setBorder(null);
+        cmbFullOrderID.setFocusable(false);
+        cmbFullOrderID.setRequestFocusEnabled(false);
         cmbFullOrderID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbFullOrderIDActionPerformed(evt);
@@ -190,8 +238,13 @@ for (Map<String, String> row : result) {
         orderMenu.add(cmbFullOrderID);
         cmbFullOrderID.setBounds(60, 570, 200, 40);
 
+        cmbItemStates.setBackground(new java.awt.Color(241, 242, 247));
         cmbItemStates.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        cmbItemStates.setForeground(new java.awt.Color(0, 0, 0));
         cmbItemStates.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pending", "Accepted", "Preparing", "Cooking", "Packaging", "Serving", "Cancelled", " " }));
+        cmbItemStates.setBorder(null);
+        cmbItemStates.setFocusable(false);
+        cmbItemStates.setRequestFocusEnabled(false);
         cmbItemStates.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbItemStatesActionPerformed(evt);
@@ -200,8 +253,13 @@ for (Map<String, String> row : result) {
         orderMenu.add(cmbItemStates);
         cmbItemStates.setBounds(300, 510, 510, 40);
 
+        cmbOrderStates.setBackground(new java.awt.Color(241, 242, 247));
         cmbOrderStates.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        cmbOrderStates.setForeground(new java.awt.Color(0, 0, 0));
         cmbOrderStates.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pending", "Finish order", "Cancel order" }));
+        cmbOrderStates.setBorder(null);
+        cmbOrderStates.setFocusable(false);
+        cmbOrderStates.setRequestFocusEnabled(false);
         cmbOrderStates.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbOrderStatesActionPerformed(evt);
@@ -246,6 +304,10 @@ for (Map<String, String> row : result) {
         
         resetTable();
     }//GEN-LAST:event_cmbOrderStatesActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,8 +354,8 @@ for (Map<String, String> row : result) {
     private javax.swing.JComboBox<String> cmbItemStates;
     private javax.swing.JComboBox<String> cmbOrderId;
     private javax.swing.JComboBox<String> cmbOrderStates;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel orderMenu;
     private javax.swing.JPanel sideBar;
     // End of variables declaration//GEN-END:variables
