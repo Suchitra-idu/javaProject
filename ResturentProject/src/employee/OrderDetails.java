@@ -5,6 +5,7 @@
 package employee;
 import database.RestaurantDatabase;
 import java.util.*;
+import javax.swing.plaf.ColorUIResource;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -23,6 +24,9 @@ public class OrderDetails extends javax.swing.JFrame {
     
     private JTable Orders;
     private DefaultTableModel OrdersModel;
+    
+    public static String employeeName;
+    public static String employeeID;
     /**
      * Creates new form OrderDetails
      */
@@ -30,52 +34,87 @@ public class OrderDetails extends javax.swing.JFrame {
     // Creates a table to save the order data.
  public OrderDetails() {
     initComponents();
+    addEmployeeInfo();
+    txtWelcome.setText("Welcome "+ employeeName);
+    
+    try {
+    // Set L&F to Metal
+    UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+} catch (Exception e) {
+    e.printStackTrace();
+}
     setupTable();
     //resetTable();
-}
-private void setupTable() {
-    // Initialize the table model
-    DefaultTableModel OrdersModel = new DefaultTableModel(
-        new Object [][] {
-            {null,null, null, null, null, null, null, null}
-        },
-        new String [] {
-            "Orderd item ID","Order ID", "Table ID", "Item", "Quantity", "Extra", "Orderd time", "Item state"
-        }
-    ) {
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            // This will make the cells uneditable
-            return false;
-        }
-    };
-
-    // Initialize the table
-    JTable Orders = new JTable(OrdersModel);
-
-    // Change the color of the table
-    Orders.setBackground(new Color(255, 255, 255)); // This changes the background color to a custom RGB color
-    Orders.setForeground(Color.BLACK); // This changes the text color
-
-    // Change the color of the table header
-    JTableHeader header = Orders.getTableHeader();
-    header.setBackground(new Color(255, 255, 255)); // This changes the background color of the header to a custom RGB color
-    header.setForeground(Color.BLACK); // This changes the text color of the header
-
-    // Remove the border of the table header
-    header.setBorder(BorderFactory.createEmptyBorder());
-
-    // Remove cell borders
-    Orders.setShowGrid(false);
-
-    // Add the table to a JScrollPane and add it to the form
-    JScrollPane scrollPane = new JScrollPane(Orders);
-    scrollPane.setBounds(10, 100, 800, 350); 
-    orderMenu.add(scrollPane);
+}  private void addEmployeeInfo(){    List<Map<String, String>> result;
+    String sql;
     
-    // Refresh the GUI to apply the changes
-    SwingUtilities.updateComponentTreeUI(this);
+    // Get the amount of orderFood entries to a given cookId that the order was placed current month
+    sql = "SELECT COUNT(*) AS count FROM orderFood JOIN `order` ON orderFood.orderId = `order`.orderId WHERE cookId = " + employeeID + " AND MONTH(orderdDate) = MONTH(CURRENT_DATE()) AND YEAR(orderdDate) = YEAR(CURRENT_DATE())";
+    result = db.executeQuery(sql);
+    txtmonthCompleatedQty.setText(result.get(0).get("count"));
+    
+    // Get the amount of orderFood entries to a given cookId that the order was placed the whole time
+    sql = "SELECT COUNT(*) AS count FROM orderFood WHERE cookId = " + employeeID;
+    result = db.executeQuery(sql);
+    txtTotalCooksQty.setText(result.get(0).get("count"));
+    
+    // Get the amount of orderFood entries where state == Pending
+    sql = "SELECT COUNT(*) AS count FROM orderFood WHERE state != 'Serving'";
+    result = db.executeQuery(sql);
+    txtAvilableOrderqty.setText(result.get(0).get("count"));
 }
+ private void setupTable() {
+        // Initialize the table model
+        OrdersModel = new DefaultTableModel(
+            new Object [][] {
+                {null,null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Orderd item ID","Order ID", "Table ID", "Item", "Quantity", "Extra", "Orderd time", "Item state"
+            }
+        ) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                // This will make the cells uneditable
+                return false;
+            }
+        };
+
+        // Initialize the table
+        Orders = new JTable(OrdersModel);
+
+        // Now that Orders is initialized, you can call resetTable()
+        resetTable();
+
+        // Change the color of the table
+        Orders.setBackground(new Color(255, 255, 255)); // This changes the background color to a custom RGB color
+        Orders.setForeground(Color.BLACK); // This changes the text color
+
+        // Change the color of the table header
+        JTableHeader header = Orders.getTableHeader();
+        header.setBackground(new Color(255, 255, 255)); // This changes the background color of the header to a custom RGB color
+        header.setForeground(Color.BLACK); // This changes the text color of the header
+
+        // Remove the border of the table header
+        header.setBorder(BorderFactory.createEmptyBorder());
+        // Remove cell borders
+        Orders.setShowGrid(false);
+
+        // Add the table to a JScrollPane and add it to the form
+        JScrollPane scrollPane = new JScrollPane(Orders);
+        scrollPane.setBounds(25, 100, 780, 380); 
+        scrollPane.getViewport().setBackground(Color.WHITE); // This changes the background color of the JScrollPane to white
+        //scrollPane.setBorder(BorderFactory.createEmptyBorder()); // This removes the border of the JScrollPane
+
+        // Change the color of the scroll bars
+        UIManager.put("ScrollBar.thumb", new ColorUIResource(new Color(255, 255, 255))); // This changes the color of the scroll bar thumb
+        SwingUtilities.updateComponentTreeUI(scrollPane); // This updates the UI of the JScrollPane to apply the changes
+
+        // Set the background color of the viewport's view to white
+        scrollPane.getViewport().getView().setBackground(Color.WHITE);
+
+        orderMenu.add(scrollPane);
+    }
     RestaurantDatabase db = new RestaurantDatabase();
  public void getSQL() {
     List<Map<String, String>> result;
@@ -145,7 +184,7 @@ for (Map<String, String> row : result) {
      */
     
     public void resetTable(){
-                DefaultTableModel model = (DefaultTableModel) Orders.getModel();
+        DefaultTableModel model = (DefaultTableModel) Orders.getModel();
         model.setRowCount(0);
 
         getSQL();
@@ -154,35 +193,163 @@ for (Map<String, String> row : result) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dashboardMenu = new javax.swing.JPanel();
+        txtWelcome = new javax.swing.JLabel();
+        compleatedOrdersPanel = new javax.swing.JPanel();
+        txtCompleatedOrderMonth = new javax.swing.JLabel();
+        txtmonthCompleatedQty = new javax.swing.JLabel();
+        availableOrdersPanel = new javax.swing.JPanel();
+        txtavilableOrder = new javax.swing.JLabel();
+        txtAvilableOrderqty = new javax.swing.JLabel();
+        totalOrdersPanel = new javax.swing.JPanel();
+        txtTotalCooks = new javax.swing.JLabel();
+        txtTotalCooksQty = new javax.swing.JLabel();
         sideBar = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnDashboard = new javax.swing.JButton();
+        btnComplains = new javax.swing.JButton();
+        btnOrders = new javax.swing.JButton();
         orderMenu = new javax.swing.JPanel();
         cmbOrderId = new javax.swing.JComboBox<>();
-        btnReset = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         cmbFullOrderID = new javax.swing.JComboBox<>();
         cmbItemStates = new javax.swing.JComboBox<>();
         cmbOrderStates = new javax.swing.JComboBox<>();
+        btnReset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1100, 680));
         setResizable(false);
         getContentPane().setLayout(null);
 
+        dashboardMenu.setBackground(new java.awt.Color(255, 255, 255));
+        dashboardMenu.setLayout(null);
+
+        txtWelcome.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtWelcome.setForeground(new java.awt.Color(0, 0, 0));
+        txtWelcome.setText("Welcome Tathsara,");
+        dashboardMenu.add(txtWelcome);
+        txtWelcome.setBounds(30, 40, 330, 50);
+
+        compleatedOrdersPanel.setBackground(new java.awt.Color(241, 242, 247));
+        compleatedOrdersPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        compleatedOrdersPanel.setForeground(new java.awt.Color(169, 169, 169));
+        compleatedOrdersPanel.setLayout(null);
+
+        txtCompleatedOrderMonth.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtCompleatedOrderMonth.setForeground(new java.awt.Color(0, 0, 0));
+        txtCompleatedOrderMonth.setText("Cooked this month  ");
+        compleatedOrdersPanel.add(txtCompleatedOrderMonth);
+        txtCompleatedOrderMonth.setBounds(20, 20, 280, 40);
+
+        txtmonthCompleatedQty.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
+        txtmonthCompleatedQty.setForeground(new java.awt.Color(0, 0, 0));
+        txtmonthCompleatedQty.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtmonthCompleatedQty.setText("0");
+        txtmonthCompleatedQty.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        compleatedOrdersPanel.add(txtmonthCompleatedQty);
+        txtmonthCompleatedQty.setBounds(420, 20, 100, 41);
+
+        dashboardMenu.add(compleatedOrdersPanel);
+        compleatedOrdersPanel.setBounds(50, 280, 540, 80);
+
+        availableOrdersPanel.setBackground(new java.awt.Color(241, 242, 247));
+        availableOrdersPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        availableOrdersPanel.setForeground(new java.awt.Color(169, 169, 169));
+        availableOrdersPanel.setLayout(null);
+
+        txtavilableOrder.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtavilableOrder.setForeground(new java.awt.Color(0, 0, 0));
+        txtavilableOrder.setText("Foods to cook ");
+        availableOrdersPanel.add(txtavilableOrder);
+        txtavilableOrder.setBounds(20, 20, 240, 40);
+
+        txtAvilableOrderqty.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
+        txtAvilableOrderqty.setForeground(new java.awt.Color(0, 0, 0));
+        txtAvilableOrderqty.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtAvilableOrderqty.setText("0");
+        txtAvilableOrderqty.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        availableOrdersPanel.add(txtAvilableOrderqty);
+        txtAvilableOrderqty.setBounds(320, 20, 100, 40);
+
+        dashboardMenu.add(availableOrdersPanel);
+        availableOrdersPanel.setBounds(50, 160, 440, 80);
+
+        totalOrdersPanel.setBackground(new java.awt.Color(241, 242, 247));
+        totalOrdersPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        totalOrdersPanel.setForeground(new java.awt.Color(169, 169, 169));
+        totalOrdersPanel.setLayout(null);
+
+        txtTotalCooks.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtTotalCooks.setForeground(new java.awt.Color(0, 0, 0));
+        txtTotalCooks.setText("Total cooks");
+        totalOrdersPanel.add(txtTotalCooks);
+        txtTotalCooks.setBounds(20, 20, 280, 40);
+
+        txtTotalCooksQty.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
+        txtTotalCooksQty.setForeground(new java.awt.Color(0, 0, 0));
+        txtTotalCooksQty.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtTotalCooksQty.setText("0");
+        txtTotalCooksQty.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        totalOrdersPanel.add(txtTotalCooksQty);
+        txtTotalCooksQty.setBounds(520, 20, 100, 41);
+
+        dashboardMenu.add(totalOrdersPanel);
+        totalOrdersPanel.setBounds(50, 400, 640, 80);
+
+        getContentPane().add(dashboardMenu);
+        dashboardMenu.setBounds(240, 0, 830, 640);
+
         sideBar.setBackground(new java.awt.Color(241, 242, 247));
         sideBar.setForeground(new java.awt.Color(241, 242, 247));
         sideBar.setLayout(null);
 
-        jButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jButton1.setText("Dashboard");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnDashboard.setBackground(new java.awt.Color(255, 210, 51));
+        btnDashboard.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btnDashboard.setForeground(new java.awt.Color(0, 0, 0));
+        btnDashboard.setText("DASHBOARD");
+        btnDashboard.setBorder(null);
+        btnDashboard.setFocusable(false);
+        btnDashboard.setRequestFocusEnabled(false);
+        btnDashboard.setRolloverEnabled(false);
+        btnDashboard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnDashboardActionPerformed(evt);
             }
         });
-        sideBar.add(jButton1);
-        jButton1.setBounds(30, 110, 190, 40);
+        sideBar.add(btnDashboard);
+        btnDashboard.setBounds(30, 70, 180, 150);
+
+        btnComplains.setBackground(new java.awt.Color(255, 210, 51));
+        btnComplains.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btnComplains.setForeground(new java.awt.Color(0, 0, 0));
+        btnComplains.setText("ORDERS");
+        btnComplains.setBorder(null);
+        btnComplains.setFocusable(false);
+        btnComplains.setRequestFocusEnabled(false);
+        btnComplains.setRolloverEnabled(false);
+        btnComplains.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComplainsActionPerformed(evt);
+            }
+        });
+        sideBar.add(btnComplains);
+        btnComplains.setBounds(30, 410, 180, 150);
+
+        btnOrders.setBackground(new java.awt.Color(255, 210, 51));
+        btnOrders.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btnOrders.setForeground(new java.awt.Color(0, 0, 0));
+        btnOrders.setText("ORDERS");
+        btnOrders.setBorder(null);
+        btnOrders.setFocusable(false);
+        btnOrders.setRequestFocusEnabled(false);
+        btnOrders.setRolloverEnabled(false);
+        btnOrders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdersActionPerformed(evt);
+            }
+        });
+        sideBar.add(btnOrders);
+        btnOrders.setBounds(30, 240, 180, 150);
 
         getContentPane().add(sideBar);
         sideBar.setBounds(-10, -10, 250, 670);
@@ -206,22 +373,12 @@ for (Map<String, String> row : result) {
         orderMenu.add(cmbOrderId);
         cmbOrderId.setBounds(60, 510, 200, 40);
 
-        btnReset.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnReset.setText("RESET");
-        btnReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetActionPerformed(evt);
-            }
-        });
-        orderMenu.add(btnReset);
-        btnReset.setBounds(640, 40, 175, 40);
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Orders");
         orderMenu.add(jLabel1);
-        jLabel1.setBounds(20, 20, 130, 59);
+        jLabel1.setBounds(0, 30, 130, 59);
 
         cmbFullOrderID.setBackground(new java.awt.Color(241, 242, 247));
         cmbFullOrderID.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -268,6 +425,22 @@ for (Map<String, String> row : result) {
         orderMenu.add(cmbOrderStates);
         cmbOrderStates.setBounds(300, 570, 510, 40);
 
+        btnReset.setBackground(new java.awt.Color(255, 210, 51));
+        btnReset.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(0, 0, 0));
+        btnReset.setText("RESET");
+        btnReset.setBorder(null);
+        btnReset.setFocusable(false);
+        btnReset.setRequestFocusEnabled(false);
+        btnReset.setRolloverEnabled(false);
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+        orderMenu.add(btnReset);
+        btnReset.setBounds(675, 40, 130, 40);
+
         getContentPane().add(orderMenu);
         orderMenu.setBounds(240, 0, 840, 640);
 
@@ -278,9 +451,10 @@ for (Map<String, String> row : result) {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbOrderIdActionPerformed
 
-    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        resetTable();
-    }//GEN-LAST:event_btnResetActionPerformed
+    private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
+               dashboardMenu.setVisible(true);
+       orderMenu.setVisible(false);
+    }//GEN-LAST:event_btnDashboardActionPerformed
 
     private void cmbFullOrderIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFullOrderIDActionPerformed
         // TODO add your handling code here:
@@ -291,6 +465,11 @@ for (Map<String, String> row : result) {
         String state = (String)cmbItemStates.getSelectedItem();
         String sql = "UPDATE orderFood SET state = '"+state+"' WHERE orderFoodId = "+selectedOrderFoodId+"";     
         db.executeQuery(sql);
+        
+        if (state == "Serving"){
+        sql = "UPDATE orderFood SET cookId = '"+employeeID+"' WHERE orderFoodId = "+selectedOrderFoodId+"";     
+        db.executeQuery(sql);
+        }
         
         resetTable();
     }//GEN-LAST:event_cmbItemStatesActionPerformed
@@ -305,14 +484,27 @@ for (Map<String, String> row : result) {
         resetTable();
     }//GEN-LAST:event_cmbOrderStatesActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        resetTable();
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnComplainsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComplainsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnComplainsActionPerformed
+
+    private void btnOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdersActionPerformed
+       dashboardMenu.setVisible(false);
+       orderMenu.setVisible(true);
+    }//GEN-LAST:event_btnOrdersActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[], String EmpId, String EmpName) {
+        
+        employeeID = EmpId;
+        employeeName = EmpName;
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -349,14 +541,27 @@ for (Map<String, String> row : result) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel availableOrdersPanel;
+    private javax.swing.JButton btnComplains;
+    private javax.swing.JButton btnDashboard;
+    private javax.swing.JButton btnOrders;
     private javax.swing.JButton btnReset;
     private javax.swing.JComboBox<String> cmbFullOrderID;
     private javax.swing.JComboBox<String> cmbItemStates;
     private javax.swing.JComboBox<String> cmbOrderId;
     private javax.swing.JComboBox<String> cmbOrderStates;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel compleatedOrdersPanel;
+    private javax.swing.JPanel dashboardMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel orderMenu;
     private javax.swing.JPanel sideBar;
+    private javax.swing.JPanel totalOrdersPanel;
+    private javax.swing.JLabel txtAvilableOrderqty;
+    private javax.swing.JLabel txtCompleatedOrderMonth;
+    private javax.swing.JLabel txtTotalCooks;
+    private javax.swing.JLabel txtTotalCooksQty;
+    private javax.swing.JLabel txtWelcome;
+    private javax.swing.JLabel txtavilableOrder;
+    private javax.swing.JLabel txtmonthCompleatedQty;
     // End of variables declaration//GEN-END:variables
 }

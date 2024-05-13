@@ -253,7 +253,7 @@ public class Login extends javax.swing.JFrame {
         if (inpPassword.equals(dbPassword)) {
             System.out.println("Login successful!");
             
-            OrderDetails.main(new String[]{});
+            OrderDetails.main(new String[]{},userData.get("empID"),userData.get("name"));
 
             dispose();
             

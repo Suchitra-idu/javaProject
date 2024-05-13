@@ -78,7 +78,7 @@ public TrackFoodItemTemplate() {
         btnBack3.setText("BACK");
         btnBack3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBack1ActionPerformed(evt);
+                btnBack3ActionPerformed(evt);
             }
         });
         trackOrder.add(btnBack3);
@@ -245,6 +245,24 @@ public TrackFoodItemTemplate() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PickSeat = new javax.swing.JPanel();
+        btnT3 = new javax.swing.JButton();
+        btnT4 = new javax.swing.JButton();
+        btnT2 = new javax.swing.JButton();
+        btnT5 = new javax.swing.JButton();
+        btnT1 = new javax.swing.JButton();
+        btnT6 = new javax.swing.JButton();
+        btnT7 = new javax.swing.JButton();
+        btnT8 = new javax.swing.JButton();
+        btnT9 = new javax.swing.JButton();
+        btnT10 = new javax.swing.JButton();
+        btnT11 = new javax.swing.JButton();
+        btnT12 = new javax.swing.JButton();
+        btnT13 = new javax.swing.JButton();
+        btnT14 = new javax.swing.JButton();
+        btnT15 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        BackgroundImage1 = new javax.swing.JLabel();
         PlaceOrder = new javax.swing.JPanel();
         makePurchesPanel = new javax.swing.JPanel();
         txtTotPrice = new javax.swing.JLabel();
@@ -299,29 +317,206 @@ public TrackFoodItemTemplate() {
         btnOrder = new javax.swing.JButton();
         btnBack1 = new javax.swing.JButton();
         BackgroundImage = new javax.swing.JLabel();
-        PickSeat = new javax.swing.JPanel();
-        btnT3 = new javax.swing.JButton();
-        btnT4 = new javax.swing.JButton();
-        btnT2 = new javax.swing.JButton();
-        btnT5 = new javax.swing.JButton();
-        btnT1 = new javax.swing.JButton();
-        btnT6 = new javax.swing.JButton();
-        btnT7 = new javax.swing.JButton();
-        btnT8 = new javax.swing.JButton();
-        btnT9 = new javax.swing.JButton();
-        btnT10 = new javax.swing.JButton();
-        btnT11 = new javax.swing.JButton();
-        btnT12 = new javax.swing.JButton();
-        btnT13 = new javax.swing.JButton();
-        btnT14 = new javax.swing.JButton();
-        btnT15 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        BackgroundImage1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1080, 640));
         setResizable(false);
         getContentPane().setLayout(null);
+
+        PickSeat.setLayout(null);
+
+        btnT3.setBackground(new java.awt.Color(234, 240, 240));
+        btnT3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT3.setForeground(new java.awt.Color(0, 0, 0));
+        btnT3.setText("TC");
+        btnT3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT3ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT3);
+        btnT3.setBounds(520, 190, 90, 70);
+
+        btnT4.setBackground(new java.awt.Color(234, 240, 240));
+        btnT4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT4.setForeground(new java.awt.Color(0, 0, 0));
+        btnT4.setText("TD");
+        btnT4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT4ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT4);
+        btnT4.setBounds(670, 190, 90, 70);
+
+        btnT2.setBackground(new java.awt.Color(234, 240, 240));
+        btnT2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT2.setForeground(new java.awt.Color(0, 0, 0));
+        btnT2.setText("TB");
+        btnT2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT2ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT2);
+        btnT2.setBounds(370, 190, 90, 70);
+
+        btnT5.setBackground(new java.awt.Color(234, 240, 240));
+        btnT5.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT5.setForeground(new java.awt.Color(0, 0, 0));
+        btnT5.setText("TE");
+        btnT5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT5ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT5);
+        btnT5.setBounds(810, 190, 90, 70);
+
+        btnT1.setBackground(new java.awt.Color(234, 240, 240));
+        btnT1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT1.setForeground(new java.awt.Color(0, 0, 0));
+        btnT1.setText("TA");
+        btnT1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT1ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT1);
+        btnT1.setBounds(220, 190, 90, 70);
+
+        btnT6.setBackground(new java.awt.Color(234, 240, 240));
+        btnT6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT6.setForeground(new java.awt.Color(0, 0, 0));
+        btnT6.setText("TJ");
+        btnT6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT6ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT6);
+        btnT6.setBounds(810, 290, 90, 70);
+
+        btnT7.setBackground(new java.awt.Color(234, 240, 240));
+        btnT7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT7.setForeground(new java.awt.Color(0, 0, 0));
+        btnT7.setText("TH");
+        btnT7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT7ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT7);
+        btnT7.setBounds(520, 290, 90, 70);
+
+        btnT8.setBackground(new java.awt.Color(234, 240, 240));
+        btnT8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT8.setForeground(new java.awt.Color(0, 0, 0));
+        btnT8.setText("TG");
+        btnT8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT8ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT8);
+        btnT8.setBounds(370, 290, 90, 70);
+
+        btnT9.setBackground(new java.awt.Color(234, 240, 240));
+        btnT9.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT9.setForeground(new java.awt.Color(0, 0, 0));
+        btnT9.setText("TI");
+        btnT9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT9ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT9);
+        btnT9.setBounds(670, 290, 90, 70);
+
+        btnT10.setBackground(new java.awt.Color(234, 240, 240));
+        btnT10.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT10.setForeground(new java.awt.Color(0, 0, 0));
+        btnT10.setText("TF");
+        btnT10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT10ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT10);
+        btnT10.setBounds(220, 290, 90, 70);
+
+        btnT11.setBackground(new java.awt.Color(234, 240, 240));
+        btnT11.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT11.setForeground(new java.awt.Color(0, 0, 0));
+        btnT11.setText("TL");
+        btnT11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT11ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT11);
+        btnT11.setBounds(370, 390, 90, 70);
+
+        btnT12.setBackground(new java.awt.Color(234, 240, 240));
+        btnT12.setFont(new java.awt.Font("Segoe UI", 1, 34)); // NOI18N
+        btnT12.setForeground(new java.awt.Color(0, 0, 0));
+        btnT12.setText("TN");
+        btnT12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT12ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT12);
+        btnT12.setBounds(670, 390, 90, 70);
+
+        btnT13.setBackground(new java.awt.Color(234, 240, 240));
+        btnT13.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        btnT13.setForeground(new java.awt.Color(0, 0, 0));
+        btnT13.setText("TK");
+        btnT13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT13ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT13);
+        btnT13.setBounds(220, 390, 90, 70);
+
+        btnT14.setBackground(new java.awt.Color(234, 240, 240));
+        btnT14.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        btnT14.setForeground(new java.awt.Color(0, 0, 0));
+        btnT14.setText("TM");
+        btnT14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT14ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT14);
+        btnT14.setBounds(520, 390, 90, 70);
+
+        btnT15.setBackground(new java.awt.Color(234, 240, 240));
+        btnT15.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
+        btnT15.setForeground(new java.awt.Color(0, 0, 0));
+        btnT15.setText("TO");
+        btnT15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnT15ActionPerformed(evt);
+            }
+        });
+        PickSeat.add(btnT15);
+        btnT15.setBounds(810, 390, 90, 70);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("SELECT TABLE");
+        PickSeat.add(jLabel1);
+        jLabel1.setBounds(380, 70, 340, 40);
+
+        BackgroundImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/Background.png"))); // NOI18N
+        PickSeat.add(BackgroundImage1);
+        BackgroundImage1.setBounds(0, 0, 1067, 612);
+
+        getContentPane().add(PickSeat);
+        PickSeat.setBounds(0, 0, 1070, 610);
 
         PlaceOrder.setLayout(null);
 
@@ -751,201 +946,6 @@ public TrackFoodItemTemplate() {
 
         getContentPane().add(pickMenu);
         pickMenu.setBounds(0, 0, 1070, 610);
-
-        PickSeat.setLayout(null);
-
-        btnT3.setBackground(new java.awt.Color(234, 240, 240));
-        btnT3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        btnT3.setForeground(new java.awt.Color(0, 0, 0));
-        btnT3.setText("TC");
-        btnT3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT3ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT3);
-        btnT3.setBounds(520, 190, 90, 70);
-
-        btnT4.setBackground(new java.awt.Color(234, 240, 240));
-        btnT4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        btnT4.setForeground(new java.awt.Color(0, 0, 0));
-        btnT4.setText("TD");
-        btnT4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT4ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT4);
-        btnT4.setBounds(670, 190, 90, 70);
-
-        btnT2.setBackground(new java.awt.Color(234, 240, 240));
-        btnT2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        btnT2.setForeground(new java.awt.Color(0, 0, 0));
-        btnT2.setText("TB");
-        btnT2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT2ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT2);
-        btnT2.setBounds(370, 190, 90, 70);
-
-        btnT5.setBackground(new java.awt.Color(234, 240, 240));
-        btnT5.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        btnT5.setForeground(new java.awt.Color(0, 0, 0));
-        btnT5.setText("TE");
-        btnT5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT5ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT5);
-        btnT5.setBounds(810, 190, 90, 70);
-
-        btnT1.setBackground(new java.awt.Color(234, 240, 240));
-        btnT1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        btnT1.setForeground(new java.awt.Color(0, 0, 0));
-        btnT1.setText("TA");
-        btnT1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT1ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT1);
-        btnT1.setBounds(220, 190, 90, 70);
-
-        btnT6.setBackground(new java.awt.Color(234, 240, 240));
-        btnT6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        btnT6.setForeground(new java.awt.Color(0, 0, 0));
-        btnT6.setText("TJ");
-        btnT6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT6ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT6);
-        btnT6.setBounds(810, 290, 90, 70);
-
-        btnT7.setBackground(new java.awt.Color(234, 240, 240));
-        btnT7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        btnT7.setForeground(new java.awt.Color(0, 0, 0));
-        btnT7.setText("TH");
-        btnT7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT7ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT7);
-        btnT7.setBounds(520, 290, 90, 70);
-
-        btnT8.setBackground(new java.awt.Color(234, 240, 240));
-        btnT8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        btnT8.setForeground(new java.awt.Color(0, 0, 0));
-        btnT8.setText("TG");
-        btnT8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT8ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT8);
-        btnT8.setBounds(370, 290, 90, 70);
-
-        btnT9.setBackground(new java.awt.Color(234, 240, 240));
-        btnT9.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        btnT9.setForeground(new java.awt.Color(0, 0, 0));
-        btnT9.setText("TI");
-        btnT9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT9ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT9);
-        btnT9.setBounds(670, 290, 90, 70);
-
-        btnT10.setBackground(new java.awt.Color(234, 240, 240));
-        btnT10.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        btnT10.setForeground(new java.awt.Color(0, 0, 0));
-        btnT10.setText("TF");
-        btnT10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT10ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT10);
-        btnT10.setBounds(220, 290, 90, 70);
-
-        btnT11.setBackground(new java.awt.Color(234, 240, 240));
-        btnT11.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        btnT11.setForeground(new java.awt.Color(0, 0, 0));
-        btnT11.setText("TL");
-        btnT11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT11ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT11);
-        btnT11.setBounds(370, 390, 90, 70);
-
-        btnT12.setBackground(new java.awt.Color(234, 240, 240));
-        btnT12.setFont(new java.awt.Font("Segoe UI", 1, 34)); // NOI18N
-        btnT12.setForeground(new java.awt.Color(0, 0, 0));
-        btnT12.setText("TN");
-        btnT12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT12ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT12);
-        btnT12.setBounds(670, 390, 90, 70);
-
-        btnT13.setBackground(new java.awt.Color(234, 240, 240));
-        btnT13.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        btnT13.setForeground(new java.awt.Color(0, 0, 0));
-        btnT13.setText("TK");
-        btnT13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT13ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT13);
-        btnT13.setBounds(220, 390, 90, 70);
-
-        btnT14.setBackground(new java.awt.Color(234, 240, 240));
-        btnT14.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        btnT14.setForeground(new java.awt.Color(0, 0, 0));
-        btnT14.setText("TM");
-        btnT14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT14ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT14);
-        btnT14.setBounds(520, 390, 90, 70);
-
-        btnT15.setBackground(new java.awt.Color(234, 240, 240));
-        btnT15.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
-        btnT15.setForeground(new java.awt.Color(0, 0, 0));
-        btnT15.setText("TO");
-        btnT15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnT15ActionPerformed(evt);
-            }
-        });
-        PickSeat.add(btnT15);
-        btnT15.setBounds(810, 390, 90, 70);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("SELECT TABLE");
-        PickSeat.add(jLabel1);
-        jLabel1.setBounds(380, 70, 340, 40);
-
-        BackgroundImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/customer/Background.png"))); // NOI18N
-        PickSeat.add(BackgroundImage1);
-        BackgroundImage1.setBounds(0, 0, 1067, 612);
-
-        getContentPane().add(PickSeat);
-        PickSeat.setBounds(0, 0, 1070, 610);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
