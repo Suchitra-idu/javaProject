@@ -33,9 +33,13 @@ public class OrderDetails extends javax.swing.JFrame {
     
     // Creates a table to save the order data.
  public OrderDetails() {
+     
+    
     initComponents();
     addEmployeeInfo();
     txtWelcome.setText("Welcome "+ employeeName);
+           dashboardMenu.setVisible(true);
+       orderMenu.setVisible(false);
     
     try {
     // Set L&F to Metal
@@ -53,6 +57,10 @@ public class OrderDetails extends javax.swing.JFrame {
     result = db.executeQuery(sql);
     txtmonthCompleatedQty.setText(result.get(0).get("count"));
     
+sql = "SELECT COUNT(*) AS count FROM orderFood JOIN `order` ON orderFood.orderId = `order`.orderId WHERE cookId = " + employeeID + " AND DATE(orderdDate) = CURRENT_DATE()";
+result = db.executeQuery(sql);
+todaysCoolQty.setText(result.get(0).get("count"));
+
     // Get the amount of orderFood entries to a given cookId that the order was placed the whole time
     sql = "SELECT COUNT(*) AS count FROM orderFood WHERE cookId = " + employeeID;
     result = db.executeQuery(sql);
@@ -204,10 +212,14 @@ for (Map<String, String> row : result) {
         totalOrdersPanel = new javax.swing.JPanel();
         txtTotalCooks = new javax.swing.JLabel();
         txtTotalCooksQty = new javax.swing.JLabel();
+        todaysCookPanel = new javax.swing.JPanel();
+        txtTodaysCook = new javax.swing.JLabel();
+        todaysCoolQty = new javax.swing.JLabel();
         sideBar = new javax.swing.JPanel();
         btnDashboard = new javax.swing.JButton();
-        btnComplains = new javax.swing.JButton();
         btnOrders = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         orderMenu = new javax.swing.JPanel();
         cmbOrderId = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
@@ -247,10 +259,10 @@ for (Map<String, String> row : result) {
         txtmonthCompleatedQty.setText("0");
         txtmonthCompleatedQty.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         compleatedOrdersPanel.add(txtmonthCompleatedQty);
-        txtmonthCompleatedQty.setBounds(420, 20, 100, 41);
+        txtmonthCompleatedQty.setBounds(510, 20, 100, 41);
 
         dashboardMenu.add(compleatedOrdersPanel);
-        compleatedOrdersPanel.setBounds(50, 280, 540, 80);
+        compleatedOrdersPanel.setBounds(70, 380, 630, 80);
 
         availableOrdersPanel.setBackground(new java.awt.Color(241, 242, 247));
         availableOrdersPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
@@ -272,7 +284,7 @@ for (Map<String, String> row : result) {
         txtAvilableOrderqty.setBounds(320, 20, 100, 40);
 
         dashboardMenu.add(availableOrdersPanel);
-        availableOrdersPanel.setBounds(50, 160, 440, 80);
+        availableOrdersPanel.setBounds(70, 140, 440, 80);
 
         totalOrdersPanel.setBackground(new java.awt.Color(241, 242, 247));
         totalOrdersPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
@@ -291,10 +303,32 @@ for (Map<String, String> row : result) {
         txtTotalCooksQty.setText("0");
         txtTotalCooksQty.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         totalOrdersPanel.add(txtTotalCooksQty);
-        txtTotalCooksQty.setBounds(520, 20, 100, 41);
+        txtTotalCooksQty.setBounds(570, 20, 100, 41);
 
         dashboardMenu.add(totalOrdersPanel);
-        totalOrdersPanel.setBounds(50, 400, 640, 80);
+        totalOrdersPanel.setBounds(70, 500, 690, 80);
+
+        todaysCookPanel.setBackground(new java.awt.Color(241, 242, 247));
+        todaysCookPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        todaysCookPanel.setForeground(new java.awt.Color(169, 169, 169));
+        todaysCookPanel.setLayout(null);
+
+        txtTodaysCook.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtTodaysCook.setForeground(new java.awt.Color(0, 0, 0));
+        txtTodaysCook.setText("Cooked today");
+        todaysCookPanel.add(txtTodaysCook);
+        txtTodaysCook.setBounds(20, 20, 280, 40);
+
+        todaysCoolQty.setFont(new java.awt.Font("Segoe UI Semibold", 0, 30)); // NOI18N
+        todaysCoolQty.setForeground(new java.awt.Color(0, 0, 0));
+        todaysCoolQty.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        todaysCoolQty.setText("0");
+        todaysCoolQty.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        todaysCookPanel.add(todaysCoolQty);
+        todaysCoolQty.setBounds(440, 20, 80, 41);
+
+        dashboardMenu.add(todaysCookPanel);
+        todaysCookPanel.setBounds(70, 260, 540, 80);
 
         getContentPane().add(dashboardMenu);
         dashboardMenu.setBounds(240, 0, 830, 640);
@@ -317,23 +351,7 @@ for (Map<String, String> row : result) {
             }
         });
         sideBar.add(btnDashboard);
-        btnDashboard.setBounds(30, 70, 180, 150);
-
-        btnComplains.setBackground(new java.awt.Color(255, 210, 51));
-        btnComplains.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnComplains.setForeground(new java.awt.Color(0, 0, 0));
-        btnComplains.setText("ORDERS");
-        btnComplains.setBorder(null);
-        btnComplains.setFocusable(false);
-        btnComplains.setRequestFocusEnabled(false);
-        btnComplains.setRolloverEnabled(false);
-        btnComplains.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComplainsActionPerformed(evt);
-            }
-        });
-        sideBar.add(btnComplains);
-        btnComplains.setBounds(30, 410, 180, 150);
+        btnDashboard.setBounds(40, 130, 180, 180);
 
         btnOrders.setBackground(new java.awt.Color(255, 210, 51));
         btnOrders.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -349,7 +367,19 @@ for (Map<String, String> row : result) {
             }
         });
         sideBar.add(btnOrders);
-        btnOrders.setBounds(30, 240, 180, 150);
+        btnOrders.setBounds(40, 350, 180, 270);
+
+        jLabel2.setFont(new java.awt.Font("Segoe Script", 2, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Resturant...");
+        sideBar.add(jLabel2);
+        jLabel2.setBounds(60, 50, 170, 45);
+
+        jLabel3.setFont(new java.awt.Font("Segoe Script", 2, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Tathsara");
+        sideBar.add(jLabel3);
+        jLabel3.setBounds(40, 30, 150, 45);
 
         getContentPane().add(sideBar);
         sideBar.setBounds(-10, -10, 250, 670);
@@ -454,6 +484,7 @@ for (Map<String, String> row : result) {
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
                dashboardMenu.setVisible(true);
        orderMenu.setVisible(false);
+       addEmployeeInfo();
     }//GEN-LAST:event_btnDashboardActionPerformed
 
     private void cmbFullOrderIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFullOrderIDActionPerformed
@@ -475,22 +506,30 @@ for (Map<String, String> row : result) {
     }//GEN-LAST:event_cmbItemStatesActionPerformed
 
     private void cmbOrderStatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrderStatesActionPerformed
-                String selectedOrderFoodId = (String) cmbFullOrderID.getSelectedItem();
-        String state = (String)cmbOrderStates.getSelectedItem();
-        String sql = "UPDATE `order` SET currentState = '"+state+"' WHERE orderId = "+selectedOrderFoodId+"";
-     
-        db.executeQuery(sql);
-        
-        resetTable();
+        String selectedOrderId = (String) cmbFullOrderID.getSelectedItem();
+    String state = (String)cmbOrderStates.getSelectedItem();
+    List<Map<String, String>> result;
+
+    // Check if all orderfood items related to the order have their state as either 'Serving' or 'Canceled'
+    String checkSql = "SELECT COUNT(*) AS count FROM orderfood WHERE orderId = "+selectedOrderId+" AND (state != 'Serving' AND state != 'Canceled')";
+    result = db.executeQuery(checkSql);
+    int count = Integer.parseInt(result.get(0).get("count"));
+
+    if(count == 0) {
+        // If all orderfood items are either 'Serving' or 'Canceled', update the currentState of the order
+        String sql = "UPDATE `order` SET currentState = '"+state+"' WHERE orderId = "+selectedOrderId+"";
+        result = db.executeQuery(sql);
+    } else {
+        // If not all orderfood items are either 'Serving' or 'Canceled', show a popup message
+        JOptionPane.showMessageDialog(null, "All order items must be 'Serving' or 'Canceled'.");
+    }
+
+    resetTable();
     }//GEN-LAST:event_cmbOrderStatesActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         resetTable();
     }//GEN-LAST:event_btnResetActionPerformed
-
-    private void btnComplainsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComplainsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnComplainsActionPerformed
 
     private void btnOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdersActionPerformed
        dashboardMenu.setVisible(false);
@@ -542,7 +581,6 @@ for (Map<String, String> row : result) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel availableOrdersPanel;
-    private javax.swing.JButton btnComplains;
     private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnOrders;
     private javax.swing.JButton btnReset;
@@ -553,11 +591,16 @@ for (Map<String, String> row : result) {
     private javax.swing.JPanel compleatedOrdersPanel;
     private javax.swing.JPanel dashboardMenu;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel orderMenu;
     private javax.swing.JPanel sideBar;
+    private javax.swing.JPanel todaysCookPanel;
+    private javax.swing.JLabel todaysCoolQty;
     private javax.swing.JPanel totalOrdersPanel;
     private javax.swing.JLabel txtAvilableOrderqty;
     private javax.swing.JLabel txtCompleatedOrderMonth;
+    private javax.swing.JLabel txtTodaysCook;
     private javax.swing.JLabel txtTotalCooks;
     private javax.swing.JLabel txtTotalCooksQty;
     private javax.swing.JLabel txtWelcome;
