@@ -229,11 +229,10 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //When the login is performed, it will cheack the giving email and passwerd matches with the ones in the databse. If there is a match, the next
+    //Window will be open.
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
  RestaurantDatabase db = new RestaurantDatabase();
- 
- 
-    
     List<Map<String, String>> result;
     String sql;      
             
@@ -272,6 +271,7 @@ public class Login extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    //Signup data will be saved in the database
     private void btnsignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsignUpActionPerformed
        RestaurantDatabase db = new RestaurantDatabase();
     List<Map<String, String>> result;

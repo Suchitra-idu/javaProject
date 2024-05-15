@@ -37,22 +37,28 @@ public class OrderDetails extends javax.swing.JFrame {
     
     initComponents();
     addEmployeeInfo();
+    
+    //Welcome text(depends on the user)
     txtWelcome.setText("Welcome "+ employeeName);
            dashboardMenu.setVisible(true);
        orderMenu.setVisible(false);
     
+    // This is to change the look of the table (default one is ugly) 
     try {
-    // Set L&F to Metal
     UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
 } catch (Exception e) {
     e.printStackTrace();
 }
     setupTable();
     //resetTable();
-}  private void addEmployeeInfo(){    List<Map<String, String>> result;
+    
+    
+    // Data about avilable cooks and other stuff will be displayed in the dashboard
+}  private void addEmployeeInfo(){  
+    
+    List<Map<String, String>> result;
     String sql;
     
-    // Get the amount of orderFood entries to a given cookId that the order was placed current month
     sql = "SELECT COUNT(*) AS count FROM orderFood JOIN `order` ON orderFood.orderId = `order`.orderId WHERE cookId = " + employeeID + " AND MONTH(orderdDate) = MONTH(CURRENT_DATE()) AND YEAR(orderdDate) = YEAR(CURRENT_DATE())";
     result = db.executeQuery(sql);
     txtmonthCompleatedQty.setText(result.get(0).get("count"));
@@ -61,18 +67,18 @@ sql = "SELECT COUNT(*) AS count FROM orderFood JOIN `order` ON orderFood.orderId
 result = db.executeQuery(sql);
 todaysCoolQty.setText(result.get(0).get("count"));
 
-    // Get the amount of orderFood entries to a given cookId that the order was placed the whole time
+    
     sql = "SELECT COUNT(*) AS count FROM orderFood WHERE cookId = " + employeeID;
     result = db.executeQuery(sql);
     txtTotalCooksQty.setText(result.get(0).get("count"));
     
-    // Get the amount of orderFood entries where state == Pending
+   
     sql = "SELECT COUNT(*) AS count FROM orderFood WHERE state != 'Serving'";
     result = db.executeQuery(sql);
     txtAvilableOrderqty.setText(result.get(0).get("count"));
 }
+// The whole table will be genarated by code (to increase the customizability)
  private void setupTable() {
-        // Initialize the table model
         OrdersModel = new DefaultTableModel(
             new Object [][] {
                 {null,null, null, null, null, null, null, null}
@@ -88,50 +94,40 @@ todaysCoolQty.setText(result.get(0).get("count"));
             }
         };
 
-        // Initialize the table
         Orders = new JTable(OrdersModel);
 
-        // Now that Orders is initialized, you can call resetTable()
         resetTable();
 
-        // Change the color of the table
-        Orders.setBackground(new Color(255, 255, 255)); // This changes the background color to a custom RGB color
-        Orders.setForeground(Color.BLACK); // This changes the text color
+        Orders.setBackground(new Color(255, 255, 255)); 
+        Orders.setForeground(Color.BLACK); 
 
-        // Change the color of the table header
         JTableHeader header = Orders.getTableHeader();
-        header.setBackground(new Color(255, 255, 255)); // This changes the background color of the header to a custom RGB color
-        header.setForeground(Color.BLACK); // This changes the text color of the header
+        header.setBackground(new Color(255, 255, 255)); 
+        header.setForeground(Color.BLACK);
 
-        // Remove the border of the table header
         header.setBorder(BorderFactory.createEmptyBorder());
-        // Remove cell borders
         Orders.setShowGrid(false);
 
-        // Add the table to a JScrollPane and add it to the form
         JScrollPane scrollPane = new JScrollPane(Orders);
         scrollPane.setBounds(25, 100, 780, 380); 
-        scrollPane.getViewport().setBackground(Color.WHITE); // This changes the background color of the JScrollPane to white
-        //scrollPane.setBorder(BorderFactory.createEmptyBorder()); // This removes the border of the JScrollPane
+        scrollPane.getViewport().setBackground(Color.WHITE); 
 
-        // Change the color of the scroll bars
-        UIManager.put("ScrollBar.thumb", new ColorUIResource(new Color(255, 255, 255))); // This changes the color of the scroll bar thumb
-        SwingUtilities.updateComponentTreeUI(scrollPane); // This updates the UI of the JScrollPane to apply the changes
+        UIManager.put("ScrollBar.thumb", new ColorUIResource(new Color(255, 255, 255)));
+        SwingUtilities.updateComponentTreeUI(scrollPane);
 
-        // Set the background color of the viewport's view to white
         scrollPane.getViewport().getView().setBackground(Color.WHITE);
 
         orderMenu.add(scrollPane);
     }
     RestaurantDatabase db = new RestaurantDatabase();
+    
+    // Get SQL data , add them to the table and combo boxxes
  public void getSQL() {
     List<Map<String, String>> result;
-    // This is to store the SQL query
     String sql;
 
     
 
-    // SQL query to get all orders with currentState = "pending", and their corresponding food item name, ordered quantity, table ID, order date, order time, and current state
   sql = "SELECT o.orderId, o.TableId, o.orderdDate, o.orderdTime, o.currentState, o.additionalInfo, f.foodName, orderFood.quntity, orderFood.orderFoodId, orderFood.state " +
       "FROM `order` o " +
       "JOIN `orderFood` ON o.orderId = `orderFood`.orderId " +
@@ -148,7 +144,6 @@ todaysCoolQty.setText(result.get(0).get("count"));
 //        System.out.println("Error while closing the connection: " + e.getMessage());
 //    }
 
-    // Data will be putten int the table by itarating the SQL result hashmap.
     for (Map<String, String> row : result) {
         OrdersModel.addRow(new Object[] {
             row.get("orderFoodId"),
@@ -163,16 +158,13 @@ todaysCoolQty.setText(result.get(0).get("count"));
         });
     }
     
-    // Clear the combo box
 cmbOrderId.removeAllItems();
 cmbFullOrderID.removeAllItems();
 
-// Add each orderFoodId to the combo box
 for (Map<String, String> row : result) {
     cmbOrderId.addItem(row.get("orderFoodId"));
 }
 
-//To prevent duplications in combo box
 Set<String> items = new HashSet<>();
 for (Map<String, String> row : result) {
     String orderId = row.get("orderId");
@@ -191,6 +183,7 @@ for (Map<String, String> row : result) {
      * regenerated by the Form Editor.
      */
     
+    //To reset tanle
     public void resetTable(){
         DefaultTableModel model = (DefaultTableModel) Orders.getModel();
         model.setRowCount(0);
@@ -490,7 +483,7 @@ for (Map<String, String> row : result) {
     private void cmbFullOrderIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFullOrderIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbFullOrderIDActionPerformed
-
+// Change the state of a item.
     private void cmbItemStatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbItemStatesActionPerformed
         String selectedOrderFoodId = (String) cmbOrderId.getSelectedItem();
         String state = (String)cmbItemStates.getSelectedItem();
@@ -504,23 +497,20 @@ for (Map<String, String> row : result) {
         
         resetTable();
     }//GEN-LAST:event_cmbItemStatesActionPerformed
-
+// Change the order state, (can only ifn all items are Cancled or serving)
     private void cmbOrderStatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrderStatesActionPerformed
         String selectedOrderId = (String) cmbFullOrderID.getSelectedItem();
     String state = (String)cmbOrderStates.getSelectedItem();
     List<Map<String, String>> result;
 
-    // Check if all orderfood items related to the order have their state as either 'Serving' or 'Canceled'
     String checkSql = "SELECT COUNT(*) AS count FROM orderfood WHERE orderId = "+selectedOrderId+" AND (state != 'Serving' AND state != 'Canceled')";
     result = db.executeQuery(checkSql);
     int count = Integer.parseInt(result.get(0).get("count"));
 
     if(count == 0) {
-        // If all orderfood items are either 'Serving' or 'Canceled', update the currentState of the order
         String sql = "UPDATE `order` SET currentState = '"+state+"' WHERE orderId = "+selectedOrderId+"";
         result = db.executeQuery(sql);
     } else {
-        // If not all orderfood items are either 'Serving' or 'Canceled', show a popup message
         JOptionPane.showMessageDialog(null, "All order items must be 'Serving' or 'Canceled'.");
     }
 

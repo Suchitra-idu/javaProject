@@ -141,16 +141,16 @@ public TrackFoodItemTemplate() {
             foodItems.put(key, value + 1);
         }
     }
+   
         
+   // This is to create the item tracking menu, Item trackings are adjusted dynamically accoding to the order.
    public void addTrackedItems(){
     if(trackOrder != null) {
         getContentPane().remove(trackOrder);
     }    getContentPane().repaint() ;  
        
     
-    //this is to store if there is an SQL output
     List<Map<String, String>> result;
-    // This is to store the SQL query
     String sql;
     
     RestaurantDatabase db = new RestaurantDatabase();
@@ -165,7 +165,6 @@ public TrackFoodItemTemplate() {
     result = db.executeQuery(sql);
     System.out.println(result);
    
-    // Create a HashMap to map food id to image path
     Map<Integer, String> foodIdToImagePath = new HashMap<>();
     foodIdToImagePath.put(1, "/customer/saladIcon.png");
     foodIdToImagePath.put(2, "/customer/burgerIcon.png");
@@ -1026,7 +1025,7 @@ public TrackFoodItemTemplate() {
 
     private void btnSendOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendOrderActionPerformed
         
-                // Check if all values are 0
+        // Check if all values are 0
         boolean allZero = foodItems.values().stream().allMatch(val -> val == 0);
         
         if(allZero == false){
@@ -1034,9 +1033,7 @@ public TrackFoodItemTemplate() {
         LocalDate currentDate = LocalDate.now();
         LocalTime currentTime = LocalTime.now();
         
-        //this is to store if there is an SQL output
         List<Map<String, String>> result;
-        // This is to store the SQL query
         String sql;
         
         RestaurantDatabase db = new RestaurantDatabase();
@@ -1054,7 +1051,6 @@ public TrackFoodItemTemplate() {
 
         // orderd item will be stored in orderItem table.
         for (HashMap.Entry<Integer, Integer> entry : foodItems.entrySet()) {
-            // If the value is greater than 0, perform an action
             int qty = entry.getValue();
             int foodId = entry.getKey();
             if ( qty > 0) {

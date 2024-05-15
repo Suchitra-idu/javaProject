@@ -29,7 +29,6 @@ public List<Map<String, String>> executeQuery(String sql) {
         boolean result = stmt.execute(sql);
 
         if (result) {
-            // The result is a ResultSet object
             ResultSet rs = stmt.getResultSet();
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnsNumber = rsmd.getColumnCount();
@@ -46,7 +45,6 @@ public List<Map<String, String>> executeQuery(String sql) {
 
             rs.close();
         } else {
-            // The result is an update count
             int updateCount = stmt.getUpdateCount();
             System.out.println("Update count: " + updateCount);
         }
