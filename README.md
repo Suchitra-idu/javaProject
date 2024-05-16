@@ -1,5 +1,5 @@
 It may seem all the project is done by me if you look at the blame. But most team members are not that good with GIT,
-so they shared their parts using other methords(google drive, PEN drives) and I pushed them to the GitHub.
+so they shared their parts using other methords(google drive, PEN drives) and I pushed that to the GitHub.
 
 Team members -
 
