@@ -3,7 +3,7 @@ so they shared their parts using other methords(google drive, PEN drives) and su
 
 Team members -
 
-KIC-DCSAI-232-F-036 ⎵⎵
-KIC-DCSAI-232-F-026 ⎵⎵
-KIC-DCSAI-232-F-021 ⎵⎵
-KIC-DCSAI-232-F-005 ⎵⎵
+KIC-DCSAI-232-F-036   
+KIC-DCSAI-232-F-026   
+KIC-DCSAI-232-F-021   
+KIC-DCSAI-232-F-005   
