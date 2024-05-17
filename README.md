@@ -18,7 +18,7 @@ A resturant management system with two appication. one for the customer and anot
 4. Click on “Start Import” to start the import process.
 This will recreate the database on your local MySQL server. Remember to replace the database connection details in the Java project with your local MySQL server details.
 
-##Team members -
+## Team members -
 KIC-DCSAI-232-F-036   
 KIC-DCSAI-232-F-026   
 KIC-DCSAI-232-F-021   
