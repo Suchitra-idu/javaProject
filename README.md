@@ -1,15 +1,18 @@
 # Resturant management system of Tathsara resturant.
-This project is developed for a university project for object-oriented programming with java module.
+This project is developed for a university project for object-oriented programming with Java module.
 
 ## Features Overview
 ### Customer application
 - Can place orders.
 - Can track orders.
-### Resturent Staff application
+### Restaurant Staff application
 - Can signUp.
-- Can login.
-- A cook can see avilable orders and compleated orders in the dashboard.
-- A cook can change state of the items and finish or cancel an order.
+- Can log in.
+- A cook can see available orders and completed orders in the dashboard.
+- A cook can change the state of the items and finish or cancel an order.
+
+## Screenshots
+![image](https://github.com/Suchitra-idu/javaProject/assets/72260396/19aa4c9d-2070-48de-93f6-37c7f6d2afa4)
 
 ## Database Setup
 1. Open MySQL Workbench and connect to your local MySQL server.
@@ -26,4 +29,4 @@ KIC-DCSAI-232-F-005
 
 ### Note
 It may seem all the project is done by me if you look at the blame. But most team members are not that good with GIT,
-so they shared their parts using other methords(google drive, PEN drives) and I pushed that to the GitHub.
+so they shared their parts using other methords(google drive, PEN drives) and I pushed that to GitHub.
