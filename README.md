@@ -1,5 +1,5 @@
 # Resturant management system of Tathsara resturant.
-A resturant management system with two appication. one for the customer and another for the resturant staff.
+This project is developed for a university project for object-oriented programming with java module.
 
 ## Features Overview
 ### Customer application
